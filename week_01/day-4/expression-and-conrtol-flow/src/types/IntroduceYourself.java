@@ -6,8 +6,8 @@ public class IntroduceYourself {
         byte myAge = 24;
         float myHeigth = 1.71F;
 
-        System.out.println(myName);
-        System.out.println(myAge);
-        System.out.println(myHeigth);
+        System.out.println("My name is Emi.");
+        System.out.println("I am " + 24 + " years old.");
+        System.out.println(1.71 + " m");
     }
 }
