@@ -11,17 +11,15 @@ public class AverageOfInput {
         // Sum: 22, Average: 4.4
         Scanner scanner = new Scanner(System.in);
         System.out.println("Write 5 separate integers please!");
+        int sum = 0;
+        for(int i = 0; i <5; i++){
+            int num = scanner.nextInt();
+            sum += num;
+        }
 
-        int num1 = scanner.nextInt();
-        int num2 = scanner.nextInt();
-        int num3 = scanner.nextInt();
-        int num4 = scanner.nextInt();
-        int num5 = scanner.nextInt();
-
-        int sum = num1 + num2 + num3 + num4 + num5;
         int average = sum / 5;
 
-        System.out.println("Sum: " + sum + "Average:" + average);
+        System.out.println("Sum: " + sum + " Average:" + average);
 
     }
 }
