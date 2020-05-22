@@ -8,13 +8,14 @@ public class Cuboid {
         //
         // Surface Area: 600 - > 2*(a*b + a*c + b*c)
         // Volume: 1000 - > a * b * c
+        short a = 5;
+        short b = 4;
+        short c = 2;
+        int surfaceArea = 2 * (a * b + a * c + b * c);
+        int volume = a * b * c;
 
-        double a = 0;
-        double b = 0;
-        double c = 0;
-
-        double surfaceArea = 600;
-        double volume = 1000;
+        System.out.println("Surface Area:" + surfaceArea);
+        System.out.println("Volume:" + volume);
 
     }
 }
