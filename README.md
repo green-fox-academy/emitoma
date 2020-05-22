@@ -1,15 +1,11 @@
 # emitoma
 
-Git-it practice repo:
-<https://github.com/emitoma/hello-world-gf>
+[Git-it practice repo](https://github.com/emitoma/hello-world-gf)
 
-Patchwork repo
-<https://github.com/emitoma/patchwork>
+[Patchwork repo](https://github.com/emitoma/patchwork)
 
-Git lesson repository
-<https://github.com/emitoma/git-lesson-repository>
+[Git lesson repository](https://github.com/emitoma/git-lesson-repository)
 
-
-<https://github.com/emitoma/emitoma.github.io>
+[Github io - A memory game](https://emitoma.github.io/memory-game/)
 
 
