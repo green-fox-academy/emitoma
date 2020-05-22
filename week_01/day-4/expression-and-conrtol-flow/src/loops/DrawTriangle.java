@@ -1,6 +1,6 @@
 package loops;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
+
 import java.util.Scanner;
 
 public class DrawTriangle {
