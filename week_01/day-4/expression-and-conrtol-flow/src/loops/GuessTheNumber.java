@@ -5,13 +5,10 @@ import java.util.Scanner;
 public class GuessTheNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please write a number");
+        System.out.println("Please write a number between 0 and 10");
 
-        double randomNum = (Math.random() * 100);
+        int storedNum = (int) (Math.random() * 10);
 
-        int storedNum = (int) randomNum;
-
-        System.out.println(randomNum);
         System.out.println(storedNum);
 
         boolean foundTheNumber = false;
