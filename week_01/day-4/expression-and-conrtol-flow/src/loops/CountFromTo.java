@@ -19,8 +19,7 @@ public class CountFromTo {
                 for (int i = num1; i <= num2; i++) {
                     System.out.println(i);
                     secondBigger = true;
-                }
-                ;
+                };
             } else {
                 System.out.println("The second number should be bigger");
             }
