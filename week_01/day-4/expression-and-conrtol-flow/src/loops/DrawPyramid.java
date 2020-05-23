@@ -2,10 +2,10 @@ package loops;
 
 public class DrawPyramid {
     public static void main(String[] args) {
-        int num = 4;
-        int space = num -1;
-        int stars = num - space;
-        for (int i = 1; i <= num; i++) {
+        int row = 4;
+        int space = row -1;
+        int stars = row - space;
+        for (int i = 1; i <= row; i++) {
             for (int j = 1; j <= space; j++) {
                 System.out.print(" ");
             }
