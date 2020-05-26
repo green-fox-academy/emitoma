@@ -8,6 +8,11 @@ public class UrlFixer {
         // Also, the URL is missing a crucial component, find out what it is and insert it too!
         // Try to solve it more than once using different String functions!
 //        System.out.println(url.charAt(6).replace("",":"));
+        StringBuilder sb = new StringBuilder(url);
+        sb.insert(5,":");
+        System.out.println(sb);
+
+
         System.out.println(url.replace("bots","odds"));
         System.out.println(url);
     }
