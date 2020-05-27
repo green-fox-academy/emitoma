@@ -11,8 +11,8 @@ import java.util.List;
 public class WriteMultipleLines {
     public static void main(String[] args) {
 
-        writer("my-file.txt", "Doggo", 5);
-        writer("my-file2.txt","catto", 1);
+        writer("my-file.txt","catto", 8);
+        writer("my-file2.txt", "Doggo", 5);
 
     }
 
@@ -25,10 +25,10 @@ public class WriteMultipleLines {
                 content.add(myWord);
             }
             Files.write(filePath, content);
-            System.out.println("done");
+//            System.out.println("done");
 
         } catch (IOException e) {
-            System.out.println("didn't worked");
+//            System.out.println("didn't worked");
             System.exit(0);
         }
 
