@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class ReversedOrder {
@@ -12,23 +14,15 @@ public class ReversedOrder {
 
         // Create a method that decrypts reversed-order.txt
         //call the function!
-        List<String> readFile = fileReader("reversed-order.txt");
-        reverser(readFile);
+        String fileName = "reversed-order.txt";
+        System.out.println(fileReader(fileName));
+
     }
 
-    public static String reverser(List<String> toReverse) {
-        //reverse content
-        String reversedLine = "";
-        //input.append(toReverse);
-        for (int i = 0; i < toReverse.size(); i++) {
-
-            String line = toReverse.get(i);
-            StringBuilder input = new StringBuilder(line);
-            reversedLine = input.reverse().toString();
-            System.out.println(reversedLine);
-        }
-        return reversedLine;
-    }
+//    public static List<String> reverser(List<String> filename) {
+//
+//
+//    }
 
     public static List fileReader(String fileName) {
         //read the file
