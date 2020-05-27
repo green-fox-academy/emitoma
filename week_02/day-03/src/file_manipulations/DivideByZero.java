@@ -4,20 +4,26 @@ import java.util.Scanner;
 
 public class DivideByZero {
     public static void main(String[] args) {
-        // Create a function that takes a number -> scanner
+        // Create a function that takes a number
         // divides ten with it,
         // and prints the result.
-        // It should print "fail" if the parameter is 0 -> catch
+        // It should print "fail" if the parameter is 0
 
         Scanner scanner = new Scanner(System.in);
-        int divisor = scanner.nextInt();
+        int input = scanner.nextInt();
+        divideNum(input);
+
+    }
+
+    public static int divideNum(int divisor) {
+        int result = 0;
         try {
-            int result = 10 / divisor;
+            result = 10 / divisor;
             System.out.println(result);
-        }catch (ArithmeticException e){
+        } catch (ArithmeticException e) {
             System.out.println("fail");
         }
-
+        return result;
     }
 }
 
