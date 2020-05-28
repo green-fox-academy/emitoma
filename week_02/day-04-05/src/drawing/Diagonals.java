@@ -1,24 +1,23 @@
 package drawing;
 
 import javax.swing.*;
+import javax.swing.plaf.synth.ColorType;
 
 import java.awt.*;
 
-import static java.awt.Window.getOwnerlessWindows;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class LineInTheMiddle {
-
-
+public class Diagonals {
     public static void mainDraw(Graphics graphics) {
-        // draw a red horizontal line to the canvas' middle.
-        // draw a green vertical line to the canvas' middle.
-        int xMiddle = WIDTH / 2;
-        int yMiddle = HEIGHT / 2;
-        graphics.setColor(Color.RED);
-        graphics.drawLine(0, yMiddle, WIDTH, yMiddle);
+        // Draw the canvas' diagonals.
+        // If it starts from the upper-left corner it should be green, otherwise it should be red.
+
+        //From upper left corner
         graphics.setColor(Color.GREEN);
-        graphics.drawLine(xMiddle, 0, xMiddle, HEIGHT);
+        graphics.drawLine(0, 0, WIDTH, HEIGHT);
+
+        graphics.setColor(Color.RED);
+        graphics.drawLine(0, WIDTH, HEIGHT, 0);
 
 
     }
@@ -28,7 +27,7 @@ public class LineInTheMiddle {
     static int HEIGHT = 320;
 
     public static void main(String[] args) {
-        JFrame jFrame = new JFrame("LineInTheMiddle");
+        JFrame jFrame = new JFrame("Diagonals");
         jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         ImagePanel panel = new ImagePanel();
         panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -46,5 +45,3 @@ public class LineInTheMiddle {
         }
     }
 }
-
-

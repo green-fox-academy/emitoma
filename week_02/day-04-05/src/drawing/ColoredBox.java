@@ -58,7 +58,7 @@ public class ColoredBox {
     static int HEIGHT = 320;
 
     public static void main(String[] args) {
-        JFrame jFrame = new JFrame("Drawing");
+        JFrame jFrame = new JFrame("ColoredBox");
         jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         ImagePanel panel = new ImagePanel();
         panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
