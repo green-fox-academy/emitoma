@@ -15,22 +15,22 @@ public class GoToCenter {
         // Draw at least 3 lines with that function using a loop.
 
         //spiral -almost
-//        for (int i = 0; i < WIDTH; i++) {
-//            int x = WIDTH - 10;
-//            int y = i * 10;
-////            int y = random.nextInt(320);
-//            goToCenter(x, y, graphics);
-//        }
-
-       // very random
-        Random random = new Random();
-        int callFunc = random.nextInt(100 - 3 + 1);
-
-        for (int i = 0; i < callFunc; i++) {
-            int x = random.nextInt(320);
-            int y = random.nextInt(320);
+        for (int i = 0; i < WIDTH; i++) {
+            int x = WIDTH - 10;
+            int y = i * 10;
+//            int y = random.nextInt(320);
             goToCenter(x, y, graphics);
         }
+
+       // very random
+//        Random random = new Random();
+//        int callFunc = random.nextInt(100 - 3 + 1);
+//
+//        for (int i = 0; i < callFunc; i++) {
+//            int x = random.nextInt(320);
+//            int y = random.nextInt(320);
+//            goToCenter(x, y, graphics);
+//        }
 
 
     }
