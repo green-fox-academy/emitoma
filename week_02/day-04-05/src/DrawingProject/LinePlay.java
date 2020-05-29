@@ -23,20 +23,16 @@ public class LinePlay {
         int y4 = HEIGHT;
 
         for (int i = 0; i < 15; i++) {
-            x += 20;
-//            y += 0;
-//            x2 += 0       ;
-            y2 += 20;
 
-//            x3 += 0;
             y3 += 20;
             x4 += 20;
-//            y4 += 0;
-
-            graphics.setColor(Color.MAGENTA);
-            graphics.drawLine(x, y, x2, y2);
             graphics.setColor(Color.GREEN);
             graphics.drawLine(x3, y3, x4, y4);
+
+            x += 20;
+            y2 += 20;
+            graphics.setColor(Color.MAGENTA);
+            graphics.drawLine(x, y, x2, y2);
 
 
         }
