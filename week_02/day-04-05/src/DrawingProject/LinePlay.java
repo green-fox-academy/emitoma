@@ -10,17 +10,36 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class LinePlay {
 
     public static void mainDraw(Graphics graphics) {
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 10;
-        int y2 = HEIGHT;
+        //lines from left
 
-        for (int i = 0; i < 100; i += 10) {
-            y1 -= i;
-            x2 += i;
-            graphics.drawLine(x1, y1, x2, y2);
+        int x = 0;
+        int y = 0;
+        int x2 = WIDTH;
+        int y2 = 0;
+
+        int x3 = 0;
+        int y3 = 0;
+        int x4 = 0;
+        int y4 = HEIGHT;
+
+        for (int i = 0; i < 15; i++) {
+            x += 20;
+//            y += 0;
+//            x2 += 0       ;
+            y2 += 20;
+
+//            x3 += 0;
+            y3 += 20;
+            x4 += 20;
+//            y4 += 0;
+
+            graphics.setColor(Color.MAGENTA);
+            graphics.drawLine(x, y, x2, y2);
+            graphics.setColor(Color.GREEN);
+            graphics.drawLine(x3, y3, x4, y4);
+
+
         }
-
 
     }
 
@@ -44,6 +63,7 @@ public class LinePlay {
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
             mainDraw(graphics);
+            this.setBackground(Color.GRAY);
         }
     }
 }

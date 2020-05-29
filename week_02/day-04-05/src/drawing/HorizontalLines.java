@@ -27,7 +27,7 @@ public class HorizontalLines {
 
         for (int i = 0; i < 30; i++) {
             //18,84,59
-           r += 2;
+           g += 2;
         }
         Graphics2D g2 = (Graphics2D) graphics;
         g2.setStroke(new BasicStroke(3));
