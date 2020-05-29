@@ -21,14 +21,16 @@ public class RainbowBoxFunction {
         rainbow.add(Color.BLUE);
         rainbow.add(new Color(75, 0, 130));
         rainbow.add(new Color(238, 130, 238));
+        int size = 20;
 
-        for (int i = 0; i < rainbow.size(); i++) {
-            int size = 20 + (i * 10);
+
+        for (int i = rainbow.size() - 1; i >= 0; i--) {
+            size = (i * 20) * 2;
             Color myColor = rainbow.get(i);
-
 
             squareDrawer(size, myColor, graphics);
         }
+
     }
 
     public static void squareDrawer(int size, Color fillColor, Graphics g) {
@@ -39,7 +41,7 @@ public class RainbowBoxFunction {
         g.setColor(fillColor);
         Graphics2D g2 = (Graphics2D) g;
         g2.setStroke(new BasicStroke(20));
-        g.drawRect(xCenter, yCenter, size, size);
+        g.fillRect(xCenter, yCenter, size, size);
     }
 
     // Don't touch the code below

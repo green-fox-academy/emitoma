@@ -15,7 +15,7 @@ public class FourRectangles {
         for (int i = 0; i < 4; i++) {
             double x = i * 20;
             double y = (i * 20) + 10;
-            int width = 100 + 10 * i;
+            int width = 100 - 10 * i;
             int height = width;
             drawRectangle((int) x, (int) y, width, height, graphics);
         }
