@@ -15,8 +15,8 @@ public class StarryNight {
         //  - The stars can be small squares
         //  - The stars should have random positions on the canvas
         //  - The stars should have random color (some shade of grey)
-        graphics.setColor(Color.BLACK);
-        graphics.fillRect(0, 0, WIDTH, HEIGHT);
+//        graphics.setColor(Color.BLACK);
+//        graphics.fillRect(0, 0, WIDTH, HEIGHT);
         for (int i = 0; i < 500; i++) {
             int x = random.nextInt(WIDTH - 10);
             int y = random.nextInt(HEIGHT - 10);
@@ -25,6 +25,7 @@ public class StarryNight {
 
 
             graphics.setColor(new Color(greyColor, greyColor, greyColor));
+//            this.setBackground(Color.BLACK);
             graphics.fillRect(x, y, size, size);
         }
     }
@@ -43,7 +44,6 @@ public class StarryNight {
         jFrame.setLocationRelativeTo(null);
         jFrame.setVisible(true);
         jFrame.pack();
-        jFrame.getContentPane().setBackground(Color.GREEN);
     }
 
     static class ImagePanel extends JPanel {
@@ -51,6 +51,7 @@ public class StarryNight {
         protected void paintComponent(Graphics graphics) {
             super.paintComponent(graphics);
             mainDraw(graphics);
+            this.setBackground(Color.BLACK);
         }
     }
 }
