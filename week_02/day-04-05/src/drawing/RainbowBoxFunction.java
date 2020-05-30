@@ -25,7 +25,7 @@ public class RainbowBoxFunction {
 
 
         for (int i = rainbow.size() - 1; i >= 0; i--) {
-            size = (i * 20) * 2;
+            size = (i * 40);
             Color myColor = rainbow.get(i);
 
             squareDrawer(size, myColor, graphics);

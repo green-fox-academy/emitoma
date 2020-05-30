@@ -9,22 +9,27 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Checkerboard {
     public static void mainDraw(Graphics graphics) {
         // Fill the canvas with a checkerboard pattern.
-
+        int numOfSquares = 8;
         int x = 0;
         int y = 0;
+        int changeX = WIDTH / numOfSquares;
+        int changeY = HEIGHT / numOfSquares;
 
-
-        for (int i = 0; i < 20; i++) {
-
-            y += 10;
-            checkerDraw(x, y, Color.WHITE, graphics);
+    //first row x changes Y not
+        for (int i = 0; i < numOfSquares; i++) {
+            x += changeX * 2;
+            checkerDraw(x, y, changeX,changeY, Color.BLACK, graphics);
+        }
+        for (int i = 0; i < numOfSquares; i++) {
+//            x += changeX * 2;
+            y += changeY;
+            checkerDraw(x, y, changeX,changeY, Color.BLACK, graphics);
         }
 
     }
 
-    public static void checkerDraw(int x, int y, Color fillColor, Graphics g) {
-        int width = 10;
-        int height = 10;
+    public static void checkerDraw(int x, int y, int width, int height, Color fillColor, Graphics g) {
+
         g.setColor(fillColor);
         g.fillRect(x, y, width, height);
         g.setColor(new Color(158, 0, 251));

@@ -12,11 +12,12 @@ public class Triangles {
         int x1 = 0;
         int x2 = WIDTH;
         int y = HEIGHT;
+        int changeCoordinates = WIDTH / 20;
         // horizontal lines
         for (int i = 0; i < 20; i++) {
-            x1 += 8;
-            y -= 8;
-            x2 -= 8;
+            x1 += changeCoordinates;
+            y -= changeCoordinates;
+            x2 -= changeCoordinates;
             graphics.drawLine(x1, y, x2, y);
         }
         //lines from left
@@ -25,10 +26,10 @@ public class Triangles {
         int x4 = WIDTH / 2;
         int y2 = HEIGHT / 2;
         for (int i = 0; i < 20; i++) {
-            x3 += 8;
-            y3 += 8;
-            x4 += 8;
-            y2 += 8;
+            x3 += changeCoordinates;
+            y3 += changeCoordinates;
+            x4 += changeCoordinates;
+            y2 += changeCoordinates;
 
             graphics.setColor(Color.RED);
             graphics.drawLine(x3, y3, x4, y2);
