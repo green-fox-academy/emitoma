@@ -14,20 +14,29 @@ public class ConnectTheDots {
         // Connect these to get a box: {{10, 10}, {290,  10}, {290, 290}, {10, 290}}
         // Connect these: {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70},
         // {120, 100}, {85, 130}, {50, 100}}
-        int[][] boxCoordinates = {{10, 10}, {290, 10}, {290, 290}, {10, 290}};
+        int[][] boxCoordinates = {{10, 10}, {290, 10}, {290, 290}, {10, 290}, {10, 10}};
+        int[][] secondCoordinates = {{50, 100}, {70, 70}, {80, 90}, {90, 90}, {100, 70},
+                {120, 100}, {85, 130}, {50, 100}};
         dotConnecter(boxCoordinates, graphics);
+        dotConnecter(secondCoordinates, graphics);
     }
 
     public static void dotConnecter(int[][] coordinates, Graphics g) {
-        int x1 = 0;
-        int y1 = 0;
-        int x2 = 10;
-        int y2 = 10;
-        for (int i = 0; i < coordinates.length; i++) {
-            for (int j = 0; j < coordinates[i].length; j++) {
-
-                g.drawLine(x1, y1, x1, y2);
+        for (int i = 0; i < coordinates.length - 1; i++) {
+            int x = 0;
+            int y = 0;
+            int x2 = 0;
+            int y2 = 0;
+            for (int j = 0; j < 1; j++) {
+                x = coordinates[i][j];
+                y = coordinates[i][j + 1];
+                x2 = coordinates[i + 1][j];
+                y2 = coordinates[i + 1][j + 1];
             }
+            Graphics2D g2 = (Graphics2D) g;
+            g2.setStroke( new BasicStroke(5));
+            g.setColor(new Color(10 ,150, 30));
+            g.drawLine(x, y, x2, y2);
         }
     }
 

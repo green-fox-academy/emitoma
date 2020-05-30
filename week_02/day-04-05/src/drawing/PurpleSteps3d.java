@@ -22,7 +22,7 @@ public class PurpleSteps3d {
             width *= 1.5;
             height *= 1.5;
             graphics.setColor(new Color(238, 130, 238));
-            graphics.fillRect(x, y, width, height);
+            graphics.fill3DRect(x, y, width, height,true);
             graphics.setColor(new Color(158, 0, 251));
             graphics.drawRect(x, y, width, height);
         }
