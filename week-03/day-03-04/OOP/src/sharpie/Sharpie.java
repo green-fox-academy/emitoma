@@ -11,8 +11,18 @@ public class Sharpie {
         this.inkAmount = 100;
     }
 
+    public Sharpie(String color, float width, float inkAmount) {
+        this.color = color;
+        this.width = width;
+        this.inkAmount = inkAmount;
+    }
+
+    public float getInkAmount() {
+        return inkAmount;
+    }
+
     public void Use() {
-        this.inkAmount -= 0.6;
+        this.inkAmount -= 5.6;
         System.out.println(inkAmount);
     }
 
