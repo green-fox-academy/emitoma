@@ -23,6 +23,25 @@ public class Main {
         System.out.println(secondPost.getText());
         System.out.println(secondPost.getPublicationDate());
 
-        BlogPost thirdPost = new BlogPost("William Turton", "One Engineer Is Trying to Get IBM to Reckon With Trump", "Daniel Hanley, a cybersecurity engineer at IBM, doesn’t want to be the center of attention. When I asked to take his picture outside one of IBM’s New York City offices, he told me that he wasn’t really into the whole organizer profile thing.", "2017.03.28.");
+        BlogPost thirdPost = new BlogPost();
+        thirdPost.setAuthorName("William Turton");
+        thirdPost.setTitle("One Engineer Is Trying to Get IBM to Reckon With Trump");
+        thirdPost.setText("Daniel Hanley, a cybersecurity engineer at IBM, doesn’t want to be the center of attention. When I asked to take his picture outside one of IBM’s New York City offices, he told me that he wasn’t really into the whole organizer profile thing.");
+        thirdPost.setPublicationDate("2017.03.28.");
+
+        Blog myBlog = new Blog();
+
+        myBlog.addPost(firstPost);
+        myBlog.addPost(secondPost);
+        myBlog.addPost(thirdPost);
+
+        System.out.println(myBlog.getBlogPosts().size());
+        myBlog.deletePost(1);
+        System.out.println(myBlog.getBlogPosts().size());
+
+        BlogPost newPost = new BlogPost("bob", "asd", "asdasdasd", "2020.06.03");
+        myBlog.updatePost(0, newPost);
+
+
     }
 }
