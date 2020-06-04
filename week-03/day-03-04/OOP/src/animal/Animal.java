@@ -9,6 +9,10 @@ public class Animal {
         this.thirst = 50;
     }
 
+    public int getHunger() {
+        return hunger;
+    }
+
     public void eat() {
         this.hunger--;
         System.out.println("Hunger level is: " + hunger);
