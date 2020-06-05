@@ -3,7 +3,7 @@ package pirates;
 
 import java.awt.image.SinglePixelPackedSampleModel;
 
-public class Main {
+public class BattleApp {
     public static void main(String[] args) {
         Parrot polly = new Parrot("Polly");
         Pirate pirate1 = new Pirate();
@@ -26,6 +26,9 @@ public class Main {
         pirate1.drinkSomeRum();
         pirate5.drinkSomeRum();
         pirate1.drinkSomeRum();
+        pirate11.drinkSomeRum();
+        pirate2.drinkSomeRum();
+        pirate3.drinkSomeRum();
         pirate7.drinkSomeRum();
         pirate4.drinkSomeRum();
         pirate10.drinkSomeRum();
@@ -33,7 +36,8 @@ public class Main {
         pirate9.drinkSomeRum();
         pirate9.drinkSomeRum();
 
-       // pirate1.howsItGoingMate();
+
+        // pirate1.howsItGoingMate();
 
         //figtht someone
         pirate1.brawl(pirate3);
@@ -66,6 +70,18 @@ public class Main {
         System.out.println(blackPearl);
         System.out.println(eros);
 
+
+        System.out.println(pirate1.getRumCounter());
+        System.out.println(pirate2.getRumCounter());
+        System.out.println(pirate3.getRumCounter());
+        System.out.println(pirate4.getRumCounter());
+        System.out.println(pirate5.getRumCounter());
+        System.out.println(pirate6.getRumCounter());
+        System.out.println(pirate7.getRumCounter());
+        System.out.println(pirate8.getRumCounter());
+        System.out.println(pirate9.getRumCounter());
+        System.out.println(pirate10.getRumCounter());
+        System.out.println(pirate11.getRumCounter());
 
 
     }
