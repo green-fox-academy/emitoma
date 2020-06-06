@@ -85,10 +85,6 @@ class ExtensionTest {
     void testTranslate_bemutatkozik() {
         assertEquals("bevemuvutavatkovozivik", extension.translate("bemutatkozik"));
     }
-    @Test
-    void testTranslate_Bemutatkozik() {
-        assertEquals("bevemuvutavatkovozivik", extension.translate("Bemutatkozik"));
-    }
 
     @Test
     void testTranslate_lagopus() {
@@ -108,5 +104,9 @@ class ExtensionTest {
     @Test
     void testTranslate_level() {
         assertEquals("levevevel", extension.translate("level"));
+    }
+    @Test
+    void test(){
+        assertEquals("evelavadovosovodavas", extension.translate("eladosodas"));
     }
 }

@@ -22,7 +22,9 @@ public class Sharpie {
     }
 
     public void use() {
-        this.inkAmount -= 10;
+        if (inkAmount >= 0) {
+            this.inkAmount -= 10.0;
+        }
     }
 
 }
