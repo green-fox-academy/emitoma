@@ -14,7 +14,7 @@ public class Mentor extends Person {
 
     @Override
     public String specIntroduce() {
-        return " " + level + " mentor";
+        return " " + this.level + " mentor";
     }
 
     @Override

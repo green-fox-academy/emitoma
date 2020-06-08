@@ -17,11 +17,11 @@ public class Sponsor extends Person {
 
     @Override
     public String specIntroduce() {
-        return " who represents " + company + " and hired " + hiredStudents + " students so far";
+        return " who represents " + this.company + " and hired " + this.hiredStudents + " students so far";
     }
 
     public void hire() {
-        hiredStudents++;
+        this.hiredStudents++;
     }
 
     @Override

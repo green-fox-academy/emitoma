@@ -17,7 +17,7 @@ public class Student extends Person {
 
     @Override
     public String specIntroduce() {
-        return " from " + previousOrganization + " who skipped " + skippedDays + " days from the course already";
+        return " from " + this.previousOrganization + " who skipped " + this.skippedDays + " days from the course already";
     }
 
     @Override
