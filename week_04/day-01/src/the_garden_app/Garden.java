@@ -41,14 +41,14 @@ public class Garden {
         double dividedWater = water / 2; //because I have 2 lists and I have to come up with something better...
         for (Flower flower : flowers) {
             if (flower.isNeedsWater()) {
-                double increaseWaterAmount = flower.getWaterAmount() + dividedWater / this.flowers.size();
-                flower.setWaterAmount(increaseWaterAmount * flower.getWaterAbsorption());
+                double increaseWaterAmount = (flower.getWaterAmount() + dividedWater / this.flowers.size()) * flower.getWaterAbsorption();
+                flower.setWaterAmount(flower.getWaterAmount() + increaseWaterAmount);
             }
         }
         for (Tree tree : trees) {
             if (tree.isNeedsWater()) {
-                double increaseWaterAmount = tree.getWaterAmount() + dividedWater / this.trees.size();
-                tree.setWaterAmount(increaseWaterAmount * tree.getWaterAbsorption());
+                double increaseWaterAmount = (tree.getWaterAmount() + dividedWater / this.trees.size()) * tree.getWaterAbsorption();
+                tree.setWaterAmount(tree.getWaterAmount() + increaseWaterAmount);
             }
         }
     }

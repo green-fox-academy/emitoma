@@ -22,14 +22,14 @@ public class Main {
         System.out.println(purpleTree.waterAmount);
         System.out.println(orangeTree.waterAmount);
 
-        tinyGarden.waterPlants(40);
+        tinyGarden.waterPlants(100);
         tinyGarden.gardenState();
         System.out.println(yellowFlower.waterAmount);
         System.out.println(blueFlower.waterAmount);
         System.out.println(purpleTree.waterAmount);
         System.out.println(orangeTree.waterAmount);
 
-        tinyGarden.waterPlants(70);
+        tinyGarden.waterPlants(10);
         tinyGarden.gardenState();
         System.out.println(yellowFlower.waterAmount);
         System.out.println(blueFlower.waterAmount);
