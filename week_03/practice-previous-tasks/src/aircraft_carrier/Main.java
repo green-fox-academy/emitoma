@@ -20,5 +20,10 @@ public class Main {
         plane2.getStatus();
         System.out.println(plane1.isPriority());
         System.out.println(plane2.isPriority());
+
+        Carrier carrier = new Carrier(100, 1000);
+        carrier.add(plane1);
+        carrier.add(plane2);
+        carrier.getStatus();
     }
 }
