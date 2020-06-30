@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fancy Table</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
-    <main>
+    <section id="table">
         <table>
             <thead>
                 <tr>
@@ -40,8 +42,27 @@
                 </tr>
             </tbody>
         </table>
-    </main>
+    </section>
+    <section id="login-form">
+        <div class="login">
+            <h1>Account login</h1>
+            <form action="">
+                <label for="username">USERNAME</label>
+                <input type="text" required autofocus>
 
+                <label for="password">PASSWORD</label>
+
+
+
+                <span class="eye"> <input type="password" required><i class="fa fa-eye icon"></i></span>
+
+
+                <p class="password">Forgot password?</p>
+
+                <input type="submit" value="Login" id="submit">
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>
