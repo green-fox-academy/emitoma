@@ -87,7 +87,8 @@ input {
 }
 
 input:focus {
-    background-color: rgba(172, 255, 47, 0.651);
+    outline: none;
+    border: 2px solid greenyellow;
 }
 
 #submit {
