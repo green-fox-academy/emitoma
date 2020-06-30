@@ -70,7 +70,8 @@ tr:nth-child(odd) {
 .password {
     text-align: right;
 }
-.password:hover{
+
+.password:hover {
     cursor: pointer;
 }
 
@@ -86,8 +87,8 @@ input {
 }
 
 input:focus {
-background-color: rgba(172, 255, 47, 0.651);}
-
+    background-color: rgba(172, 255, 47, 0.651);
+}
 
 #submit {
     background-color: black;
@@ -96,20 +97,26 @@ background-color: rgba(172, 255, 47, 0.651);}
     border: none;
     width: 80px;
 }
-#submit:hover{
+
+#submit:hover {
     cursor: pointer;
 }
 
-.eye i{
+span {
+    position: relative;
+}
+
+.eye i {
     position: absolute
 }
 
-.icon { 
+.icon {
     padding: 15px;
     color: rgb(49, 0, 128);
     width: 70px;
     text-align: right;
-} 
-.icon:hover{
+}
+
+.icon:hover {
     cursor: pointer;
 }
