@@ -3,6 +3,7 @@ package com.greenfoxacademy.springstart;
 public class Greeting {
     private long id;
     private String content;
+    private String name;
 
     public Greeting(long id, String content) {
         this.id = id;
