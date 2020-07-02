@@ -12,7 +12,7 @@ public class WebGreetCountController {
     static long count;
 
     @RequestMapping("/web/greetingCount")
-    public String greeting(Model model, @RequestParam(defaultValue = "name") String name) {
+    public String greeting(Model model, @RequestParam("name") String name) {
         count++;
         model.addAttribute("name", name);
         model.addAttribute("counter", count);
