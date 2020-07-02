@@ -65,7 +65,7 @@ public class BattleApp {
         eros.fillship(pirate10);
         System.out.println(eros);
 
-        //Battele
+        //Battle
         System.out.println(blackPearl.battle(eros));
         System.out.println(blackPearl);
         System.out.println(eros);
