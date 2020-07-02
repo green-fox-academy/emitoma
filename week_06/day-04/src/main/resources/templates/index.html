@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show Account</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<div>
+
+    <h2>Account details:</h2>
+    <ul>
+        <li th:text="'Owner name: ' + ${bankaccount.name}"></li>
+        <li th:text="'Balance: ' + ${#numbers.formatDecimal(bankaccount.balance,0, 2, 'DEFAULT')} + ' ' + ${bankaccount.animalType} "></li>
+
+    </ul>
+</div>
+
+</body>
+</html>
