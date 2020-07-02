@@ -40,8 +40,8 @@ public class BankAccountController {
     @GetMapping("/allaccount")
     public String allacc(Model model) {
 
-        model.addAttribute("account", accounts);
-        model.addAttribute("bankaccount", bankAccount);
+        model.addAttribute("accounts", accounts);
+
 
         return "accounts";
     }

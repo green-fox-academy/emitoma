@@ -14,8 +14,8 @@
         </tr>
     </thed>
     <tr th:each="account : ${accounts}">
-        <td th:text="${bankaccount.name}"></td>
-        <td th:text="'Balance: ' + ${#numbers.formatDecimal(bankaccount.balance,0, 2, 'DEFAULT')} + ' ' + ${bankaccount.animalType}"></td>
+        <td th:text="${account.name}"></td>
+        <td th:text="${#numbers.formatDecimal(account.balance,0, 2, 'DEFAULT')} + ' ' + ${account.animalType}"></td>
     </tr>
 </table>
 
