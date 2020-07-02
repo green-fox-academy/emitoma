@@ -3,21 +3,72 @@
 <head>
     <title>All accounts</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans+KR:wght@300&display=swap"
+          rel="stylesheet">
     <meta charset="utf-8"/>
 </head>
 <body>
-<table>
-    <thed>
+<div class="container">
+    <h1>Bank of Simba's accounts</h1>
+    <table>
+        <thead>
         <tr>
             <td>Owner</td>
             <td>Balance</td>
+            <td class="increase">+</td>
+            <td>Index</td>
+            <td>Owner is a King</td>
+            <td>Good or bad?</td>
         </tr>
-    </thed>
-    <tr th:each="account : ${accounts}">
-        <td th:text="${account.name}"></td>
-        <td th:text="${#numbers.formatDecimal(account.balance,0, 2, 'DEFAULT')} + ' ' + ${account.animalType}"></td>
-    </tr>
-</table>
+        </thead>
+        <tr th:each="account : ${accounts}">
+            <td th:text="${account.name}" th:attr="class=${account.getKingStyleClass()}"></td>
+            <td th:text="${#numbers.formatDecimal(account.balance,0,'DEFAULT', 2, 'DEFAULT')} + ' Zebra'"
+                th:attr="class=${account.getKingStyleClass()}"></td>
+
+            <td><a th:href="@{/increase-balance(name=${account.name})}" class="increase">+</a></td>
+<!--            <td><a th:href="@{/increase-balance(accountName=${account.name})}" class="increase">+</a></td>-->
+
+            <td th:text="${accountStat.index}" th:attr="class=${account.getKingStyleClass()}"></td>
+            <td th:text="${account.isKing()}" th:attr="class=${account.getKingStyleClass()}"></td>
+            <td th:text="${account.getBadString()}" th:attr="class=${account.getKingStyleClass()}"></td>
+        </tr>
+    </table>
+
+    <h2>Add new account</h2>
+
+    <form action="/save-account" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="balance">Balance:</label>
+        <input type="number" id="balance" name="balance" required>
+
+        <label for="animalType">Type</label>
+        <input type="text" id="animalType" name="animalType" required>
+
+        <p>Is the owner of the account a king?</p>
+
+        <input type="radio" name="isKing" id="true" value="true">
+        <label>true</label>
+
+        <input type="radio" name="isKing" id="false" value="false" checked>
+        <label>false</label>
+
+        <p>Is the owner of the account a bad guy?</p>
+
+        <input type="radio" name="isBadGuy" value="true">
+        <label>true</label>
+
+
+        <input type="radio" name="isBadGuy" value="false" checked>
+        <label>false</label>
+
+        <input type="submit" value="Save">
+    </form>
+
+
+</div>
 
 </body>
 </html>

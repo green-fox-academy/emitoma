@@ -5,13 +5,54 @@ body {
 }
 
 body {
-    font-family: "Berlin Sans FB";
     color: darkblue;
+    font-family: 'Montserrat', sans-serif;
 }
 
-table,
+h1 {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.container {
+    margin: 10px auto;
+    width: 800px;
+    padding: 20px;
+    max-width: 100%;
+    background-color: aliceblue;
+}
+
+table {
+    margin: 10px auto;
+    padding: 30px;
+    /*border-collapse: collapse;*/
+    border-radius: 5px;
+}
+
 td {
     border: 1px solid darkslategray;
-    border-collapse: collapse;
     padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    text-wrap: normal;
+}
+
+thead {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.king {
+    color: white;
+    font-family: "Book Antiqua";
+    background-color: royalblue;
+    font-style: italic;
+}
+
+form {
+    display: block;
+}
+
+.increase {
+    text-decoration: none;
+    font-weight: bold;
 }
