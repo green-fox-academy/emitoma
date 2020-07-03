@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,300;1,400&display=swap"
+          rel="stylesheet">
+
+    <title>My Webshop</title>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>My Shop</h1>
+        <hr>
+        <section class="navigation">
+            <button class="heading-btn">Only Available</button>
+            <button class="heading-btn">Cheapest First</button>
+            <button class="heading-btn">Contains Nike</button>
+            <button class="heading-btn">Average Stock</button>
+            <button class="heading-btn">Most Expensive Available</button>
+        </section>
+    </header>
+    <main>
+        <table>
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Price</td>
+                <td>Quantity of stock</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+</body>
+</html>

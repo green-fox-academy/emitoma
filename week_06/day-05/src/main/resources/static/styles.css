@@ -1,0 +1,72 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/*** Basic style***/
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    background-image: url("https://cutewallpaper.org/21/minimalist-tumblr-background/Desktop-Minimalist-Background-Tumblr-Aesthetic-wallpaper-.png");
+    background-color: rgb(222, 233, 250);
+    color: rgb(25, 13, 48);
+}
+
+.container {
+    width: 1000px;
+    margin: 48px auto;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/***Header***/
+
+h1 {
+    font-weight: 400;
+}
+
+
+.navigation {
+    padding: 18px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading-btn {
+    padding: 4px;
+    margin: 0 8px;
+    background-color: rgb(52, 216, 235);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 20px;
+}
+
+/***Table***/
+table {
+    width: 100%;
+}
+
+.row:nth-child(even) {
+    background-color: rgb(252, 230, 217);
+}
+
+.row:nth-child(odd) {
+    background-color: rgb(249, 242, 241);
+}
+
+thead {
+    background-color: rgb(243, 156, 107);
+}
+
+td {
+    padding: 4px;
+    height: 28px;
+    width: 25%;
+    border-radius: 4px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
