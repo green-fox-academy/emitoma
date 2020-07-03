@@ -57,7 +57,11 @@
                 <td th:text="${item.name}"></td>
                 <td th:text="${item.getTypeString()}"></td>
                 <td th:text="${item.description}"></td>
-                <td th:text="${#numbers.formatDecimal(item.price, 0, 'DEFAULT',2,'DEFAULT')} + 'HUF'"></td>
+
+                <!--                <td th:text="${#numbers.formatDecimal(item.price, 0, 'DEFAULT',2,'DEFAULT')} + 'HUF'"></td>-->
+                <!--                <td th:text="${#numbers.formatCurrency(item.price)}"></td>-->
+                <td th:text="${item.getFormattedPrice()}"></td>
+
                 <td th:text="${item.quantityOfStock}"></td>
             </tr>
             </tbody>

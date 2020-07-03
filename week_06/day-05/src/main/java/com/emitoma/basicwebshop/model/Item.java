@@ -1,6 +1,8 @@
 package com.emitoma.basicwebshop.model;
 
 import java.lang.reflect.Type;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Item {
     private String name;
@@ -78,5 +80,17 @@ public class Item {
             return "Beverages and Snacks";
         }
         return "Unknown";
+    }
+
+    public String getFormattedPrice() {
+        if (this.currency == Currency.EUR) {
+            Locale esLocale = new Locale("es", "ES");
+            NumberFormat esFormat = NumberFormat.getCurrencyInstance(esLocale);
+            return esFormat.format(this.price);
+        } else {
+            Locale esLocale = new Locale("hu", "HU");
+            NumberFormat huFormat = NumberFormat.getCurrencyInstance(esLocale);
+            return huFormat.format(this.price);
+        }
     }
 }
