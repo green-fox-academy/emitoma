@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,300;1,400&display=swap"
           rel="stylesheet">
 
-    <title>My Webshop</title>
+    <title>My Webshop - average</title>
 </head>
 <body>
 <div class="container">
@@ -17,30 +17,13 @@
             <button class="heading-btn"><a th:href="'/only-available'">Only Available</a></button>
             <button class="heading-btn"><a th:href="'/cheapest-first'">Cheapest First</a></button>
             <button class="heading-btn"><a th:href="'/contains-nike'">Contains Nike</a></button>
-            <button class="heading-btn"><a th:href="'/average-stock'">Average Stock</a></button>
+            <button class="heading-btn"><a th:href="'/webshop'">Average Stock</a></button>
             <button class="heading-btn"><a th:href="'/webshop'">Most Expensive Available</a></button>
         </section>
+        <div>
+            <h2 th:text="'Average stock: '+ ${average}"></h2>
+        </div>
     </header>
-    <main>
-        <table>
-            <thead>
-            <tr>
-                <td>Name</td>
-                <td>Description</td>
-                <td>Price</td>
-                <td>Quantity of stock</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="row" th:each="item : ${items}">
-                <td th:text="${item.name}"></td>
-                <td th:text="${item.description}"></td>
-                <td th:text="${#numbers.formatDecimal(item.price, 0, 'DEFAULT',2,'DEFAULT')}"></td>
-                <td th:text="${item.quantityOfStock}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </main>
 </div>
 </body>
 </html>

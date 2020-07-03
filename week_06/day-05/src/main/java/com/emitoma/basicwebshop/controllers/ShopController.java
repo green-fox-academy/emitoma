@@ -5,12 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Controller
 public class ShopController {
@@ -75,4 +71,28 @@ public class ShopController {
                 .filter(i -> i.getDescription().contains("Nike"))
                 .collect(Collectors.toList());
     }
+
+    @RequestMapping("/average-stock")
+    public String average(Model model) {
+        OptionalDouble opAverage = getAverage();
+        double average = opAverage.orElse(1);
+        model.addAttribute("average", average);
+        return "average";
+    }
+
+    public OptionalDouble getAverage() {
+        return items.stream()
+                .mapToInt(Item::getQuantityOfStock)
+                .average();
+    }
+    @RequestMapping
 }
+
+
+
+
+
+
+
+
+
