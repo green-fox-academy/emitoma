@@ -2,6 +2,7 @@ package com.emitoma.basicwebshop.controllers;
 
 import com.emitoma.basicwebshop.model.Currency;
 import com.emitoma.basicwebshop.model.Item;
+import com.emitoma.basicwebshop.model.ItemType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +14,11 @@ import java.util.stream.Collectors;
 public class ShopController {
 
     List<Item> items = new ArrayList<>(Arrays.asList(
-            new Item("Running Shoes", "Nike running shoes for everyday sport", 1000, Currency.HUF, 5),
-            new Item("Printer", "Some HP pritnter that will print pages", 3000, Currency.HUF, 2),
-            new Item("Coca Cola", "0.5l standard coke", 25, Currency.HUF, 0),
-            new Item("Wokin", "Chicken with fries rice in Wokin sauce", 119, Currency.HUF, 100),
-            new Item("T-Shirt", "Blue with corgi on a bike", 300, Currency.HUF, 1)
+            new Item("Running Shoes", ItemType.CLOTHES, "Nike running shoes for everyday sport", 1000, Currency.HUF, 5),
+            new Item("Printer", ItemType.ELECTRONICS, "Some HP pritnter that will print pages", 3000, Currency.HUF, 2),
+            new Item("Coca Cola", ItemType.FOOD, "0.5l standard coke", 25, Currency.HUF, 0),
+            new Item("Wokin", ItemType.FOOD, "Chicken with fries rice in Wokin sauce", 119, Currency.HUF, 100),
+            new Item("T-Shirt", ItemType.CLOTHES, "Blue with corgi on a bike", 300, Currency.HUF, 1)
     ));
 
     @GetMapping("/hello")
@@ -138,6 +139,17 @@ public class ShopController {
     public String noItems(Model model) {
         model.addAttribute("statistic", "No items to show.");
         return "statistic";
+    }
+
+    @GetMapping("/more-filters")
+    public String morefilters(Model model) {
+        model.addAttribute("items", items);
+        return "more";
+    }
+
+    @GetMapping("/filter-by-type")
+    public String typeFilter(Model mode) {
+        return "more";
     }
 }
 

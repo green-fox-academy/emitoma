@@ -6,13 +6,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,300;1,400&display=swap"
           rel="stylesheet">
 
-    <title>My Webshop - average</title>
+    <title>My Webshop</title>
 </head>
 <body>
 <div class="container">
     <header>
-        <h1><a th:href="'/webshop'">My Shop</a></h1>
+        <div class="page-title">
+            <h1><a th:href="'/webshop'">My Shop</a></h1>
+            <h1><a th:href="'/more-filters'">More>></a></h1>
+        </div>
+
         <hr>
+
         <section class="navigation">
             <button class="heading-btn"><a th:href="'/only-available'">Only Available</a></button>
             <button class="heading-btn"><a th:href="'/cheapest-first'">Cheapest First</a></button>
