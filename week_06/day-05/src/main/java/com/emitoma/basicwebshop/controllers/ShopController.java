@@ -19,7 +19,7 @@ public class ShopController {
             new Item("Running Shoes", "Nike running shoes for everyday sport", 1000, 5),
             new Item("Printer", "Some HP pritnter that will print pages", 3000, 3),
             new Item("Coca Cola", "0.5l standard coke", 25, 0),
-            new Item("Wokin", "Chicken with fries rioce an Wokin sauce", 119, 100),
+            new Item("Wokin", "Chicken with fries rice in Wokin sauce", 119, 100),
             new Item("T-Shirt", "Blue with corgi on a bike", 300, 1)
     ));
 
@@ -59,6 +59,20 @@ public class ShopController {
     public List<Item> getSorted() {
         return items.stream()
                 .sorted(Comparator.comparing(Item::getPrice))
+                .collect(Collectors.toList());
+    }
+
+
+    @RequestMapping("/contains-nike")
+    public String nike(Model model) {
+        List<Item> containsNike = getNike();
+        model.addAttribute("items", containsNike);
+        return "index";
+    }
+
+    public List<Item> getNike() {
+        return items.stream()
+                .filter(i -> i.getDescription().contains("Nike"))
                 .collect(Collectors.toList());
     }
 }

@@ -11,14 +11,14 @@
 <body>
 <div class="container">
     <header>
-        <h1>My Shop</h1>
+        <h1><a th:href="'/webshop'">My Shop</a></h1>
         <hr>
         <section class="navigation">
             <button class="heading-btn"><a th:href="'/only-available'">Only Available</a></button>
             <button class="heading-btn"><a th:href="'/cheapest-first'">Cheapest First</a></button>
-            <button class="heading-btn"><a href="">Contains Nike</a></button>
-            <button class="heading-btn"><a href="">Average Stock</a></button>
-            <button class="heading-btn"><a href="">Most Expensive Available</a></button>
+            <button class="heading-btn"><a th:href="'/contains-nike'">Contains Nike</a></button>
+            <button class="heading-btn"><a th:href="'/webshop'">Average Stock</a></button>
+            <button class="heading-btn"><a th:href="'/webshop'">Most Expensive Available</a></button>
         </section>
     </header>
     <main>
