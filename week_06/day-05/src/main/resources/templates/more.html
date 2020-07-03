@@ -19,11 +19,18 @@
         <hr>
 
         <section class="navigation">
-            <button class="heading-btn" th:each="filter:${filters}"><a th:href="'/filter-by-type/'+ ${filter.shortName}"
-                                                                       th:text="${filter.longName}"></a></button>
+            <a th:each="filter:${filters}" th:href="'/filter-by-type/'+ ${filter.shortName}">
+                <button class="heading-btn"
+                        th:text="${filter.longName}"></button>
+            </a>
 
-            <button class="heading-btn"><a th:href="'more-filters'">Euro</a></button>
-            <button class="heading-btn"><a th:href="'more-filters'">Original currency</a></button>
+
+            <a th:href="'/price-in-eur'">
+                <button class="heading-btn">Euro</button>
+            </a>
+            <a th:href="'/price-in-original'">
+                <button class="heading-btn">Original currency</button>
+            </a>
         </section>
 
     </header>
@@ -57,9 +64,6 @@
                 <td th:text="${item.name}"></td>
                 <td th:text="${item.getTypeString()}"></td>
                 <td th:text="${item.description}"></td>
-
-                <!--                <td th:text="${#numbers.formatDecimal(item.price, 0, 'DEFAULT',2,'DEFAULT')} + 'HUF'"></td>-->
-                <!--                <td th:text="${#numbers.formatCurrency(item.price)}"></td>-->
                 <td th:text="${item.getFormattedPrice()}"></td>
 
                 <td th:text="${item.quantityOfStock}"></td>

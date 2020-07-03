@@ -1,6 +1,5 @@
 package com.emitoma.basicwebshop.model;
 
-import java.lang.reflect.Type;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -8,12 +7,14 @@ public class Item {
     private String name;
     private ItemType type;
     private String description;
-    private int price;
+    private double price;
     private Currency currency;
     private int quantityOfStock;
 
+    private static Currency currentCurrency = Currency.HUF;
 
-    public Item(String name, ItemType type, String description, int price, Currency currency, int quantityOfStock) {
+
+    public Item(String name, ItemType type, String description, double price, Currency currency, int quantityOfStock) {
         this.name = name;
         this.type = type;
         this.description = description;
@@ -39,11 +40,11 @@ public class Item {
         this.description = description;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -71,6 +72,14 @@ public class Item {
         this.type = type;
     }
 
+    public static Currency getCurrentCurrency() {
+        return currentCurrency;
+    }
+
+    public static void setCurrentCurrency(Currency currentCurrency) {
+        Item.currentCurrency = currentCurrency;
+    }
+
     public String getTypeString() {
         if (this.type == ItemType.CLOTHES) {
             return "Clothes and shoes";
@@ -83,14 +92,24 @@ public class Item {
     }
 
     public String getFormattedPrice() {
-        if (this.currency == Currency.EUR) {
-            Locale esLocale = new Locale("es", "ES");
-            NumberFormat esFormat = NumberFormat.getCurrencyInstance(esLocale);
-            return esFormat.format(this.price);
-        } else {
-            Locale esLocale = new Locale("hu", "HU");
-            NumberFormat huFormat = NumberFormat.getCurrencyInstance(esLocale);
-            return huFormat.format(this.price);
+        double targetPrice = this.price;
+        if (currentCurrency == Currency.HUF && this.currency == Currency.EUR) {
+            targetPrice *= 353;
+        } else if (currentCurrency == Currency.EUR && this.currency == Currency.HUF) {
+            targetPrice /= 353;
         }
+        return formatCurrency(targetPrice, currentCurrency);
     }
+
+    private String formatCurrency(double price, Currency targetCurrency) {
+        NumberFormat format = NumberFormat.getInstance();
+        format.setMaximumFractionDigits(2);
+        format.setMinimumFractionDigits(2);
+        java.util.Currency currency = java.util.Currency.getInstance(String.valueOf(targetCurrency));
+        format.setCurrency(currency);
+
+        return format.format(price) + currency.getSymbol(new Locale("hu", "HU"));
+    }
+
+
 }

@@ -182,6 +182,28 @@ public class ShopController {
                 .filter(item -> item.getType().equals(type))
                 .collect(Collectors.toList());
     }
+
+    @GetMapping("/price-in-eur")
+    public String changeCurrency(Model model) {
+        Item.setCurrentCurrency(Currency.EUR);
+
+        model.addAttribute("filters", filters);
+        model.addAttribute("items", items);
+
+        return "more";
+    }
+
+    @GetMapping("/price-in-original")
+    public String changeBackCurrency(Model model) {
+        Item.setCurrentCurrency(Currency.HUF);
+
+        model.addAttribute("filters", filters);
+        model.addAttribute("items", items);
+
+        return "more";
+    }
+
+
 }
 
 

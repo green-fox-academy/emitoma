@@ -11,6 +11,7 @@ public class Filter {
         this.longName = longName;
     }
 
+
     public ItemType getType() {
         return type;
     }
@@ -18,6 +19,8 @@ public class Filter {
     public void setType(ItemType type) {
         this.type = type;
     }
+
+
 
     public String getShortName() {
         return shortName;

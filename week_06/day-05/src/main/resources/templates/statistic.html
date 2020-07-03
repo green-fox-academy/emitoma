@@ -19,11 +19,21 @@
         <hr>
 
         <section class="navigation">
-            <button class="heading-btn"><a th:href="'/only-available'">Only Available</a></button>
-            <button class="heading-btn"><a th:href="'/cheapest-first'">Cheapest First</a></button>
-            <button class="heading-btn"><a th:href="'/contains-nike'">Contains Nike</a></button>
-            <button class="heading-btn"><a th:href="'/average-stock'">Average Stock</a></button>
-            <button class="heading-btn"><a th:href="'/most-expensive'">Most Expensive Available</a></button>
+            <a th:href="'/only-available'">
+                <button class="heading-btn ">Only Available</button>
+            </a>
+            <a th:href="'/cheapest-first'">
+                <button class="heading-btn ">Cheapest First</button>
+            </a>
+            <a th:href="'/contains-nike'">
+                <button class="heading-btn ">Contains Nike</button>
+            </a>
+            <a th:href="'/average-stock'">
+                <button class="heading-btn ">Average Stock</button>
+            </a>
+            <a th:href="'/most-expensive'">
+                <button class="heading-btn ">Most Expensive Available</button>
+            </a>
         </section>
     </header>
     <main>
@@ -31,7 +41,7 @@
         <form action="/search" method="post">
 
             <label for="search" class="search">Search for:</label>
-            <input type="text" id="search" name="search" placeholder="e.g.: 300" class="search-field">
+            <input type="text" id="search" name="search" placeholder="Start typing..." class="search-field">
             <button type="submit">Search</button>
 
         </form>
