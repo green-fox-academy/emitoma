@@ -1,5 +1,6 @@
 package com.emitoma.basicwebshop.controllers;
 
+import com.emitoma.basicwebshop.model.Currency;
 import com.emitoma.basicwebshop.model.Item;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,11 +13,11 @@ import java.util.stream.Collectors;
 public class ShopController {
 
     List<Item> items = new ArrayList<>(Arrays.asList(
-            new Item("Running Shoes", "Nike running shoes for everyday sport", 1000, 5),
-            new Item("Printer", "Some HP pritnter that will print pages", 3000, 3),
-            new Item("Coca Cola", "0.5l standard coke", 25, 0),
-            new Item("Wokin", "Chicken with fries rice in Wokin sauce", 119, 100),
-            new Item("T-Shirt", "Blue with corgi on a bike", 300, 1)
+            new Item("Running Shoes", "Nike running shoes for everyday sport", 1000, Currency.HUF, 5),
+            new Item("Printer", "Some HP pritnter that will print pages", 3000, Currency.HUF, 2),
+            new Item("Coca Cola", "0.5l standard coke", 25, Currency.HUF, 0),
+            new Item("Wokin", "Chicken with fries rice in Wokin sauce", 119, Currency.HUF, 100),
+            new Item("T-Shirt", "Blue with corgi on a bike", 300, Currency.HUF, 1)
     ));
 
     @GetMapping("/hello")
@@ -34,11 +35,15 @@ public class ShopController {
     @RequestMapping("/only-available")
     public String zeroStock(Model model) {
         List<Item> outOfStock = getOutOfStock();
+        if (outOfStock.isEmpty()) {
+            noItems(model);
+        }
         model.addAttribute("items", outOfStock);
         return "index";
     }
 
     public List<Item> getOutOfStock() {
+
         return items.stream()
                 .filter(s -> s.getQuantityOfStock() > 0)
                 .collect(Collectors.toList());
@@ -47,6 +52,9 @@ public class ShopController {
     @RequestMapping("/cheapest-first")
     public String cheap(Model model) {
         List<Item> sorted = getSorted();
+        if (sorted.isEmpty()) {
+            noItems(model);
+        }
         model.addAttribute("items", sorted);
         return "index";
 
@@ -62,6 +70,10 @@ public class ShopController {
     @RequestMapping("/contains-nike")
     public String nike(Model model) {
         List<Item> containsNike = getNike();
+        if (containsNike.isEmpty()) {
+            noItems(model);
+        }
+
         model.addAttribute("items", containsNike);
         return "index";
     }
@@ -95,8 +107,10 @@ public class ShopController {
 
             String name = "The most expensive item is: " + expItem.getName();
             model.addAttribute("statistic", name);
-        }
+        } else {
 
+            model.addAttribute("statistic", "No items to show.");
+        }
 
         return "statistic";
     }
@@ -117,8 +131,13 @@ public class ShopController {
     public List<Item> findItem(String searchValue) {
         return items.stream()
                 .filter(item -> item.getDescription().toLowerCase().contains(searchValue.toLowerCase()) || item.getName().toLowerCase().contains(searchValue.toLowerCase()))
-                        .collect(Collectors.toList());
+                .collect(Collectors.toList());
 
+    }
+
+    public String noItems(Model model) {
+        model.addAttribute("statistic", "No items to show.");
+        return "statistic";
     }
 }
 

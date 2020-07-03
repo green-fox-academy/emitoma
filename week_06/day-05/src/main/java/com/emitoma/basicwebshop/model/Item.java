@@ -4,12 +4,14 @@ public class Item {
     private String name;
     private String description;
     private int price;
+    private Currency currency;
     private int quantityOfStock;
 
-    public Item(String name, String description, int price, int quantityOfStock) {
+    public Item(String name, String description, int price, Currency currency, int quantityOfStock) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.currency = currency;
         this.quantityOfStock = quantityOfStock;
     }
 
@@ -37,6 +39,14 @@ public class Item {
         this.price = price;
     }
 
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
     public int getQuantityOfStock() {
         return quantityOfStock;
     }
@@ -44,4 +54,5 @@ public class Item {
     public void setQuantityOfStock(int quantityOfStock) {
         this.quantityOfStock = quantityOfStock;
     }
+
 }
