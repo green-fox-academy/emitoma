@@ -40,7 +40,7 @@ public class ShopController {
 
     public List<Item> getOutOfStock() {
         return items.stream()
-                .filter(s -> s.getQuantityOfStock() == 0)
+                .filter(s -> s.getQuantityOfStock() > 0)
                 .collect(Collectors.toList());
     }
 
@@ -76,8 +76,9 @@ public class ShopController {
     public String average(Model model) {
         OptionalDouble opAverage = getAverage();
         double average = opAverage.orElse(1);
-        model.addAttribute("average", average);
-        return "average";
+        String averageString = "Average stock: " + average;
+        model.addAttribute("statistic", averageString);
+        return "statistic";
     }
 
     public OptionalDouble getAverage() {
@@ -85,7 +86,40 @@ public class ShopController {
                 .mapToInt(Item::getQuantityOfStock)
                 .average();
     }
-    @RequestMapping
+
+    @RequestMapping("/most-expensive")
+    public String expensive(Model model) {
+        Optional<Item> optionalItem = getExpensive();
+        if (optionalItem.isPresent()) {
+            Item expItem = optionalItem.get();
+
+            String name = "The most expensive item is: " + expItem.getName();
+            model.addAttribute("statistic", name);
+        }
+
+
+        return "statistic";
+    }
+
+    public Optional<Item> getExpensive() {
+        return items.stream()
+                .sorted(Comparator.comparing(Item::getPrice).reversed())
+                .findFirst();
+    }
+
+//    @PostMapping("/search")
+//    public String searchItem(@ModelAttribute String searchValue, Model model) {
+//        List<Item> searchResult = findItem(searchValue);
+//        model.addAttribute("items", searchResult);
+//        return "index";
+//    }
+//
+//    public List<Item> findItem(String searchValue) {
+//        return items.stream()
+//                .filter(item -> item.getName().contains(searchValue))
+//                .collect(Collectors.toList());
+//
+//    }
 }
 
 
