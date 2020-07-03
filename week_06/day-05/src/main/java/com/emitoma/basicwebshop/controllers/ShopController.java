@@ -1,6 +1,7 @@
 package com.emitoma.basicwebshop.controllers;
 
 import com.emitoma.basicwebshop.model.Currency;
+import com.emitoma.basicwebshop.model.Filter;
 import com.emitoma.basicwebshop.model.Item;
 import com.emitoma.basicwebshop.model.ItemType;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,11 @@ public class ShopController {
             new Item("Coca Cola", ItemType.FOOD, "0.5l standard coke", 25, Currency.HUF, 0),
             new Item("Wokin", ItemType.FOOD, "Chicken with fries rice in Wokin sauce", 119, Currency.HUF, 100),
             new Item("T-Shirt", ItemType.CLOTHES, "Blue with corgi on a bike", 300, Currency.HUF, 1)
+    ));
+    List<Filter> filters = new ArrayList<>(Arrays.asList(
+            new Filter(ItemType.CLOTHES, "clothes", "Clothes and Shoes"),
+            new Filter(ItemType.ELECTRONICS, "electronics", "Electronics"),
+            new Filter(ItemType.FOOD, "food", "Beverages and Snacks")
     ));
 
     @GetMapping("/hello")
@@ -143,13 +149,38 @@ public class ShopController {
 
     @GetMapping("/more-filters")
     public String morefilters(Model model) {
+        model.addAttribute("filters", filters);
         model.addAttribute("items", items);
         return "more";
     }
 
-    @GetMapping("/filter-by-type")
-    public String typeFilter(Model mode) {
+    @GetMapping("/filter-by-type/{shortName}")
+    public String typeFilter(@PathVariable String shortName, Model model) {
+
+        Optional<Filter> optionalFilter = filters.stream()
+                .filter(filter -> filter.getShortName().equals(shortName))
+                .findFirst();
+
+        List<Item> filteredItems;
+
+        if (optionalFilter.isPresent()) {
+            filteredItems = typeFilter(optionalFilter.get().getType());
+        } else {
+            filteredItems = new ArrayList<>();
+        }
+
+
+        model.addAttribute("filters", filters);
+        model.addAttribute("items", filteredItems);
+
+
         return "more";
+    }
+
+    public List<Item> typeFilter(ItemType type) {
+        return items.stream()
+                .filter(item -> item.getType().equals(type))
+                .collect(Collectors.toList());
     }
 }
 

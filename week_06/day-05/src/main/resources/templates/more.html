@@ -13,15 +13,15 @@
     <header>
         <div class="page-title">
             <h1><a th:href="'/webshop'">My Shop</a></h1>
-<!--            <h1><a th:href="'/more-filters'">More>></a></h1>-->
+            <!--            <h1><a th:href="'/more-filters'">More>></a></h1>-->
         </div>
 
         <hr>
 
         <section class="navigation">
-            <button class="heading-btn "><a th:href="'more-filters'">Clothes and Shoes</a></button>
-            <button class="heading-btn"><a th:href="'more-filters'">Electronics</a></button>
-            <button class="heading-btn"><a th:href="'more-filters'">Beverages and Snacks</a></button>
+            <button class="heading-btn" th:each="filter:${filters}"><a th:href="'/filter-by-type/'+ ${filter.shortName}"
+                                                                       th:text="${filter.longName}"></a></button>
+
             <button class="heading-btn"><a th:href="'more-filters'">Euro</a></button>
             <button class="heading-btn"><a th:href="'more-filters'">Original currency</a></button>
         </section>
