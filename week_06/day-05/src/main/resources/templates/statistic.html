@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/styles.css}"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,300;1,400&display=swap"
-          rel="stylesheet">
 
-    <title>My Webshop</title>
-</head>
+<head th:include="fragments :: head(${'My Webshop'})"></head>
+
 <body>
 <div class="container">
     <header>

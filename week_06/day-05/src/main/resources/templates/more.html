@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" th:href="@{/styles.css}"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,300;1,400&display=swap"
-          rel="stylesheet">
+<head th:include="fragments :: head(${'My Webshop'})"></head>
 
-    <title>My Webshop</title>
-</head>
 <body>
 <div class="container">
     <header>
         <div class="page-title">
             <h1><a th:href="'/webshop'">My Shop</a></h1>
-            <!--            <h1><a th:href="'/more-filters'">More>></a></h1>-->
         </div>
 
         <hr>
@@ -37,15 +30,16 @@
 
     <main>
 
-        <form action="/search" method="post">
+        <form action="/filter-by-price" method="post">
 
-            <button type="submit">Above</button>
-            <button type="submit">Below</button>
-            <button type="submit">Exactly</button>
+            <input type="submit" name="filter-type" value="above" class="btn">
+            <input type="submit" name="filter-type" value="exactly" class="btn">
+            <input type="submit" name="filter-type" value="below" class="btn">
 
-            <label for="search" class="search">Filter by Price:</label>
+            <label class="search">Filter by Price:</label>
             <br>
-            <input type="text" id="search" name="search" placeholder="Start typing..." class="search-field">
+            <input type="number" name="filter" placeholder="'...e.g.:300" class="search-field" required>
+
 
         </form>
 

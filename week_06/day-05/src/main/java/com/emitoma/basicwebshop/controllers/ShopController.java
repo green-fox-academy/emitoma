@@ -43,7 +43,7 @@ public class ShopController {
     public String zeroStock(Model model) {
         List<Item> outOfStock = getOutOfStock();
         if (outOfStock.isEmpty()) {
-            noItems(model);
+            model.addAttribute("statistic", "No items to show.");
         }
         model.addAttribute("items", outOfStock);
         return "index";
@@ -60,7 +60,7 @@ public class ShopController {
     public String cheap(Model model) {
         List<Item> sorted = getSorted();
         if (sorted.isEmpty()) {
-            noItems(model);
+            model.addAttribute("statistic", "No items to show.");
         }
         model.addAttribute("items", sorted);
         return "index";
@@ -78,7 +78,7 @@ public class ShopController {
     public String nike(Model model) {
         List<Item> containsNike = getNike();
         if (containsNike.isEmpty()) {
-            noItems(model);
+            model.addAttribute("statistic", "No items to show.");
         }
 
         model.addAttribute("items", containsNike);
@@ -142,10 +142,6 @@ public class ShopController {
 
     }
 
-    public String noItems(Model model) {
-        model.addAttribute("statistic", "No items to show.");
-        return "statistic";
-    }
 
     @GetMapping("/more-filters")
     public String morefilters(Model model) {
@@ -203,6 +199,32 @@ public class ShopController {
         return "more";
     }
 
+    @PostMapping("/filter-by-price")
+    public String filterByPrice(@RequestParam(value = "filter") int searchValue,
+                                @RequestParam(value = "filter-type") String filterType, Model model) {
+
+        List<Item> filteredItems = priceFilter(searchValue, filterType);
+        model.addAttribute("items", filteredItems);
+        model.addAttribute("filters", filters);
+
+
+        return "more";
+    }
+
+    public List<Item> priceFilter(int searchValue, String filterType) {
+        List<Item> filteredItems = new ArrayList<>();
+        if (filterType.equals("above")) {
+            filteredItems = items.stream().filter(item -> item.getPrice() > searchValue)
+                    .collect(Collectors.toList());
+        } else if (filterType.equals("below")) {
+            filteredItems = items.stream().filter(item -> item.getPrice() < searchValue)
+                    .collect(Collectors.toList());
+        } else if (filterType.equals("exactly")) {
+            filteredItems = items.stream().filter(item -> item.getPrice() == searchValue)
+                    .collect(Collectors.toList());
+        }
+        return filteredItems;
+    }
 
 }
 
