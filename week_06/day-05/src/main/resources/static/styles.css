@@ -45,7 +45,7 @@ h1 a {
     justify-content: space-between;
 }
 
-button, .btn {
+button, .btn, .heading-btn {
     padding: 6px;
     margin: 0 8px;
     background-color: rgb(52, 216, 235);
@@ -83,7 +83,7 @@ form {
     font-size: 20px;
 }
 
-form button {
+form button ,.btn {
     background-color: rgb(255, 56, 100);
 }
 

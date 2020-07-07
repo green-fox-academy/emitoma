@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:include="fragments :: head(${'My Webshop'})"></head>
 
 <body>
 <div class="container">
     <header>
         <div class="page-title">
-            <h1><a th:href="'/webshop'">My Shop</a></h1>
+            <h1><a th:href="'/webshop'">Emi's Shop</a></h1>
         </div>
 
         <hr>
 
         <section class="navigation">
             <a th:each="filter:${filters}" th:href="'/filter-by-type/'+ ${filter.shortName}">
-                <button class="heading-btn"
-                        th:text="${filter.longName}"></button>
+                <button class="heading-btn" th:text="${filter.longName}"></button>
             </a>
 
 
@@ -38,7 +38,7 @@
 
             <label class="search">Filter by Price:</label>
             <br>
-            <input type="number" name="filter" placeholder="'...e.g.:300" class="search-field" required>
+            <input type="number" name="filter" placeholder="...e.g.:300" class="search-field" required>
 
 
         </form>

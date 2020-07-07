@@ -137,9 +137,9 @@ public class ShopController {
 
     public List<Item> findItem(String searchValue) {
         return items.stream()
-                .filter(item -> item.getDescription().toLowerCase().contains(searchValue.toLowerCase()) || item.getName().toLowerCase().contains(searchValue.toLowerCase()))
+                .filter(item -> item.getDescription().toLowerCase().contains(searchValue.toLowerCase())
+                        || item.getName().toLowerCase().contains(searchValue.toLowerCase()))
                 .collect(Collectors.toList());
-
     }
 
 
