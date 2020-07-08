@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class PrinterController {
-
+    @Autowired
     private Printer printer;
 
-    public PrinterController(Printer printer) {
-        this.printer = printer;
-    }
+//    public PrinterController(Printer printer) {
+//        this.printer = printer;
+//    }
 
     @GetMapping("/")
     @ResponseBody
