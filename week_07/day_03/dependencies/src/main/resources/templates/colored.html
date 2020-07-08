@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head(${'Colored Backgound'})">
+</head>
+
+<body th:class="${color}">
+<div class="container pt-5">
+    <a th:href="'/useful'"><h2 class="p-2 bg-dark text-white">Main Page</h2></a>
+
+    <h3 th:text="${color}" class="p-2 bg-dark text-white"></h3>
+</div>
+</body>
+</html>

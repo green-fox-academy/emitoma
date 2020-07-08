@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments :: head(${'Useful Utilities'})"></head>
+
+
+<body>
+<div class="container pt-5">
+    <h1>Useful links: </h1>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a th:href="'/useful'"><h2>Main Page</h2></a></li>
+        <li class="list-group-item"><a th:href="'/useful/colored'"><h2>Colored Background</h2></a></li>
+        <li class="list-group-item"><a th:href="'/useful'"><h2>Email validator</h2></a></li>
+        <li class="list-group-item"><a th:href="'/useful'"><h2>Caesar encoder/decoder</h2></a></li>
+    </ul>
+</div>
+
+</body>
+</html>
