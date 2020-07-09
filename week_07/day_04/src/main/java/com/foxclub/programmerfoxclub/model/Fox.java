@@ -3,22 +3,22 @@ package com.foxclub.programmerfoxclub.model;
 import java.util.List;
 
 public class Fox {
-    private int id = 1;
     private String name;
-    private String tricks;
+    private List<Trick> tricks;
     private Food food;
     private Drink drink;
 
-    public Fox(String name){
+    public Fox() {
+    }
+
+    public Fox(String name) {
         this.name = name;
     }
 
-    public Fox(String name, String tricks, Food food, Drink drink) {
+    public Fox(String name, Food food, Drink drink) {
         this.name = name;
-        this.tricks = tricks;
         this.food = food;
         this.drink = drink;
-        this.id ++;
     }
 
     public String getName() {
@@ -27,14 +27,6 @@ public class Fox {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getTricks() {
-        return tricks;
-    }
-
-    public void setTricks(String tricks) {
-        this.tricks = tricks;
     }
 
     public Food getFood() {
@@ -53,11 +45,17 @@ public class Fox {
         this.drink = drink;
     }
 
-    public int getId() {
-        return id;
+
+
+    public List<Trick> getTricks() {
+        return tricks;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTricks(List<Trick> tricks) {
+        this.tricks = tricks;
+    }
+
+    public void learnTrick(Trick trick) {
+        this.tricks.add(trick);
     }
 }

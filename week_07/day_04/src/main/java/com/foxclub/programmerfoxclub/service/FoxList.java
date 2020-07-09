@@ -8,17 +8,18 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FoxList {
     List<Fox> foxList = new ArrayList<>(Arrays.asList(
-            new Fox("Karak", "Code Java", Food.HAMBURGER, Drink.APPLEJUICE),
-            new Fox("Vuk", "Steal chickens", Food.PIZZA, Drink.WATER)
+            new Fox("Karak", Food.PIZZA, Drink.LEMONADE),
+            new Fox("Vuk",  Food.PIZZA, Drink.WATER)
     ));
 
 
     public void add(Fox fox) {
-     foxList.add(fox);
+        foxList.add(fox);
     }
 
     public List<Fox> getFoxList() {
@@ -29,13 +30,17 @@ public class FoxList {
         this.foxList = foxList;
     }
 
-    public String findMyFox(String name){
-       return foxList.stream()
+    public Optional<Fox> findMyFox(String name) {
+        return foxList.stream()
                 .filter(fox -> fox.getName().equals(name))
-               .toString();
+                .findFirst();
     }
-    public String getFox(String name){
 
+    public boolean contains(Fox fox){
+        return foxList.contains(fox);
     }
+
+
+
 
 }

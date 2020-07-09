@@ -7,7 +7,9 @@
     <h1>Welcome to Programmer Fox Club!</h1>
 
     <p>Please provide a name so you can associate it to your pet!</p>
-    <form th:action="@{/(name = ${name})}" class="form-inline" method="post">
+
+
+    <form th:action="@{/login}" class="form-inline" method="post">
         <div class="form-group">
             <label>Name: </label>
             <input type="text" name="name" class="form-control">
