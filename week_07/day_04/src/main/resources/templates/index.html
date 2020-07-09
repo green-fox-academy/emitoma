@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:include="fragments :: head(${'Fox Club'})"></head>
+<body>
+<div class="container mt-5">
+    <ul>
+        <li><a th:href="'/login'">login</a></li>
+    </ul>
+    <img src="./greenfox.png" alt="Your fox">
+    <p th:text="'This is '+ ${name} +' Currently living on pizza and lemonade. He knows 2 tricks.'"></p>
+    <h2>Known tricks:</h2>
+    <ul>
+        <li>Write HTML</li>
+        <li>Code in Java</li>
+    </ul>
+</div>
+
+</body>
+</html>
