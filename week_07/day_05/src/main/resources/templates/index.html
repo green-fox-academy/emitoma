@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head(${'Fox Club'})"></head>
+<body>
+<div class="container mt-5">
+    <ul>
+        <li><a th:href="'/login'">login</a></li>
+        <li><a th:href="'/'">Information</a></li>
+        <li><a th:href="'/'">Nutrition Store</a></li>
+    </ul>
+
+    <img src="./greenfox.png" alt="Your fox">
+    <p th:text="${name}"></p>
+    <p>This is Mr.Fox. </p>
+    <p th:if="${fox != null && fox.drink != null}" th:text="'This is ' + ${fox.name} +
+    '. He\'s eating ' + ${fox.food} + ' and drinks '    + ${fox.drink} + '. He knows '
+    + ${fox.trick} + '.'"></p>
+    <h2>Known tricks:</h2>
+
+</div>
+</body>
+</html>

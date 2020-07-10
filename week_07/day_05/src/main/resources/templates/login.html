@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments :: head(${'Log In'})"></head>
+<body>
+<div class="container mt-5">
+    <h1>Welcome to Programmer Fox Club!</h1>
+
+    <p>Please provide a name so you can associate it to your pet!</p>
+
+
+    <form th:action="@{/login}" method="post">
+        <div class="form-group row col-sm-10">
+            <label class="mb-2">Name: </label>
+            <input type="text" name="name" class="form-control mb-2">
+
+            <div class="form-group row dropdown col-sm-10 mb-2">
+                <label class="mb-2 mr-2">Choose a trick:</label>
+                <select name="trick" class="mb-2">
+                    <option th:value="0"></option>
+                    <option th:each="trick:${trickList}" th:value="${trick.name}" th:text="${trick.name}"></option>
+                </select>
+            </div>
+
+            <div class="form-group row dropdown col-sm-10 mb-2">
+                <label class="mb-2 mr-2">Choose a food:</label>
+                <select name="food" class="mb-2">
+                    <option th:value="0"></option>
+                    <option th:each="food:${foodList}" th:value="${food.name}" th:text="${food.name}"></option>
+                </select>
+            </div>
+
+            <div class="form-group row dropdown col-sm-10 mb-2">
+                <label class="mb-2 mr-2">Choose a drink:</label>
+                <select name="drink" class="mb-2">
+                    <option th:value="0"></option>
+                    <option th:each="drink:${drinkList}" th:value="${drink.name}" th:text="${drink.name}"></option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-2 block">GO</button>
+
+    </form>
+</div>
+
+
+</body>
+</html>
