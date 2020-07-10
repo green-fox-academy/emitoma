@@ -6,16 +6,25 @@
     <ul>
         <li><a th:href="'/login'">login</a></li>
         <li><a th:href="'/'">Information</a></li>
-        <li><a th:href="'/'">Nutrition Store</a></li>
+
+        <!--        <li><a th:href="@{/nutrition-store(name=${fox.name})}">Nutrition Store</a></li>-->
+        <li><a th:href="'/nutrition-store'">Nutrition Store</a></li>
+        <li><a th:href="@{/trick-center(name=${name})}">Trick center</a></li>
     </ul>
 
     <img src="./greenfox.png" alt="Your fox">
-    <p th:text="${name}"></p>
-    <p>This is Mr.Fox. </p>
-    <p th:if="${fox != null && fox.drink != null}" th:text="'This is ' + ${fox.name} +
+    <div th:if="${fox != null && fox.drink != null}">
+
+        <p  th:text="'This is ' + ${fox.name} +
     '. He\'s eating ' + ${fox.food} + ' and drinks '    + ${fox.drink} + '. He knows '
-    + ${fox.trick} + '.'"></p>
-    <h2>Known tricks:</h2>
+    + ${fox.numberOfTricks()} + ' trick(s).'"></p>
+        <h2>Known tricks:</h2>
+        <ul th:each="trick:${trickList}">
+            <li th:text="${trick.name}"></li>
+        </ul>
+
+    </div>
+
 
 </div>
 </body>

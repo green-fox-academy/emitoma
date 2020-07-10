@@ -10,13 +10,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class FoxService {
     private List<Fox> foxList;
     private List<Food> foodList;
     private List<Drink> drinkList;
-    private  List<Trick> trickList;
+    private List<Trick> trickList;
 
     public FoxService() {
         this.foxList = new ArrayList<>();
@@ -31,7 +32,7 @@ public class FoxService {
     }
 
     public void addDefaultFox() {
-        this.foxList.add(new Fox("Karak", trickList.get(1), foodList.get(0), drinkList.get(2)));
+        this.foxList.add(new Fox("Mr.Green", trickList.get(1), foodList.get(0), drinkList.get(2)));
     }
 
     public void addDefaultFoods() {
@@ -46,12 +47,13 @@ public class FoxService {
         this.drinkList.add(new Drink("Coke"));
     }
 
-    public void addDefaultTricks(){
+    public void addDefaultTricks() {
         this.trickList.add(new Trick("Code in Java"));
         this.trickList.add(new Trick("Jump up high"));
         this.trickList.add(new Trick("Steal chickens"));
 
     }
+
     public void add(Fox fox) {
         this.foxList.add(fox);
     }
@@ -92,5 +94,12 @@ public class FoxService {
 
     public void setTrickList(List<Trick> trickList) {
         this.trickList = trickList;
+    }
+
+    public List<Trick> getNotLearntTricks(Fox fox) {
+        return fox.getTrickList().stream()
+                .filter(trick -> !trickList.contains(trick))
+                .collect(Collectors.toList());
+
     }
 }

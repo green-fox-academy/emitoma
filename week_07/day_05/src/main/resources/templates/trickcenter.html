@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head(${'Fox Club'})"></head>
+<body>
+<div class="container mt-5">
+    <ul>
+        <li><a th:href="'/login'">login</a></li>
+        <li><a th:href="@{/name={name}}">Information</a></li>
+        <!--        <li><a th:href="@{/nutrition-store(name=${fox.name})}">Nutrition Store</a></li>-->
+        <li><a th:href="'/nutrition-store'">Nutrition Store</a></li>
+        <li><a th:href="@{/trick-center(name=${name})}">Trick center</a></li>
+
+    </ul>
+
+    <p th:text="${name}"></p>
+
+    <!--    th:action="@{/update-food(foodId=${food.id})}"-->
+    <form th:action="@{/trick-center}" action="post">
+        <div class="form-group row dropdown col-sm-10 mb-2">
+            <label class="mb-2 mr-2">Choose a trick:</label>
+            <select name="trick" class="mb-2">
+                <option th:each="trick:${trickList}" th:value="${trick.name}" th:text="${trick.name}"></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2 block">GO</button>
+    </form>
+</div>
+</body>
+</html>
