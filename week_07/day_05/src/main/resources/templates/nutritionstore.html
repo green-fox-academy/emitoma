@@ -5,16 +5,14 @@
 <div class="container mt-5">
     <ul>
         <li><a th:href="'/login'">login</a></li>
-        <li><a th:href="'/'">Information</a></li>
-        <!--        <li><a th:href="@{/nutrition-store(name=${fox.name})}">Nutrition Store</a></li>-->
-        <li><a th:href="'/nutrition-store'">Nutrition Store</a></li>
+        <li><a th:href="@{/(name=${name})}">Information</a></li>
+        <li><a th:href="@{/nutrition-store(name=${name})}">Nutrition Store</a></li>
         <li><a th:href="@{/trick-center(name=${name})}">Trick center</a></li>
 
     </ul>
 
-    <!--    th:action="@{/update-food(foodId=${food.id})}"-->
-<!--    <form th:action="@{/nutrition-store(name=${fox.name})}" method="post">-->
-    <form>
+
+    <form th:action="@{/nutrition-store(name=${name})}" method="post">
         <div class="form-group row dropdown col-sm-10 mb-2">
             <label class="mb-2 mr-2">Choose a food:</label>
             <select name="food" class="mb-2">
@@ -30,7 +28,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary mb-2 block">GO</button>
-    </form >
+    </form>
 </div>
 </body>
 </html>

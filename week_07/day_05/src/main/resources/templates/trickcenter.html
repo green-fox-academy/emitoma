@@ -5,9 +5,9 @@
 <div class="container mt-5">
     <ul>
         <li><a th:href="'/login'">login</a></li>
-        <li><a th:href="@{/name={name}}">Information</a></li>
+        <li><a th:href="@{/(name=${name})}">Information</a></li>
         <!--        <li><a th:href="@{/nutrition-store(name=${fox.name})}">Nutrition Store</a></li>-->
-        <li><a th:href="'/nutrition-store'">Nutrition Store</a></li>
+        <li><a th:href="@{/nutrition-store(name=${name})}">Nutrition Store</a></li>
         <li><a th:href="@{/trick-center(name=${name})}">Trick center</a></li>
 
     </ul>
@@ -15,7 +15,7 @@
     <p th:text="${name}"></p>
 
     <!--    th:action="@{/update-food(foodId=${food.id})}"-->
-    <form th:action="@{/trick-center}" action="post">
+    <form th:action="@{/trick-center(name=${name})}" method="post">
         <div class="form-group row dropdown col-sm-10 mb-2">
             <label class="mb-2 mr-2">Choose a trick:</label>
             <select name="trick" class="mb-2">

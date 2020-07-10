@@ -32,7 +32,8 @@ public class FoxService {
     }
 
     public void addDefaultFox() {
-        this.foxList.add(new Fox("Mr.Green", trickList.get(1), foodList.get(0), drinkList.get(2)));
+        this.foxList.add(new Fox("Mr.Green", foodList.get(0), drinkList.get(2)));
+
     }
 
     public void addDefaultFoods() {
@@ -97,9 +98,24 @@ public class FoxService {
     }
 
     public List<Trick> getNotLearntTricks(Fox fox) {
-        return fox.getTrickList().stream()
-                .filter(trick -> !trickList.contains(trick))
-                .collect(Collectors.toList());
+        List<Trick> foxTricks = fox.getTrickList();
 
+        List<Trick> filteredTricks = new ArrayList<>();
+
+        for (Trick trick : trickList) {
+            boolean found = false;
+            for (Trick foxTrick : foxTricks) {
+                if (trick.equals(foxTrick)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                filteredTricks.add(trick);
+            }
+        }
+
+
+        return filteredTricks;
     }
 }

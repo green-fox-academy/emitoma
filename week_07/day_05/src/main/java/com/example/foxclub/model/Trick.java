@@ -18,4 +18,8 @@ public class Trick {
     public String toString() {
         return this.name;
     }
+
+    public boolean equals(Trick trick) {
+        return this.name.equals(trick.name);
+    }
 }

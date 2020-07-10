@@ -5,17 +5,18 @@
 <div class="container mt-5">
     <ul>
         <li><a th:href="'/login'">login</a></li>
-        <li><a th:href="'/'">Information</a></li>
+        <li><a th:href="@{/(name=${name})}">Information</a></li>
 
         <!--        <li><a th:href="@{/nutrition-store(name=${fox.name})}">Nutrition Store</a></li>-->
-        <li><a th:href="'/nutrition-store'">Nutrition Store</a></li>
+        <li><a th:href="@{/nutrition-store(name=${name})}">Nutrition Store</a></li>
+
         <li><a th:href="@{/trick-center(name=${name})}">Trick center</a></li>
     </ul>
 
     <img src="./greenfox.png" alt="Your fox">
     <div th:if="${fox != null && fox.drink != null}">
 
-        <p  th:text="'This is ' + ${fox.name} +
+        <p th:text="'This is ' + ${fox.name} +
     '. He\'s eating ' + ${fox.food} + ' and drinks '    + ${fox.drink} + '. He knows '
     + ${fox.numberOfTricks()} + ' trick(s).'"></p>
         <h2>Known tricks:</h2>

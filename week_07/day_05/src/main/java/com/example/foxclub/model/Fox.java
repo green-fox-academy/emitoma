@@ -5,22 +5,20 @@ import java.util.List;
 
 public class Fox {
     private String name;
-    private Trick trick;
+
     private List<Trick> trickList;
     private Food food;
     private Drink drink;
 
     public Fox() {
-
+        this.trickList = new ArrayList<>();
     }
 
-    public Fox(String name, Trick trick, Food food, Drink drink) {
+    public Fox(String name, Food food, Drink drink) {
         this.name = name;
-        this.trick = trick;
         this.trickList = new ArrayList<>();
         this.food = food;
         this.drink = drink;
-        learnTricks(this.trick);
     }
 
 
@@ -40,14 +38,6 @@ public class Fox {
         this.trickList = trickList;
     }
 
-
-    public Trick getTrick() {
-        return trick;
-    }
-
-    public void setTrick(Trick trick) {
-        this.trick = trick;
-    }
 
     public Food getFood() {
         return food;
