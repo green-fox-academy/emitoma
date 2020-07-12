@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments :: head(${'Fox Club'})"></head>
+<head th:include="fragments-head :: head(${'Fox Club'})"></head>
 <body>
 <div class="container mt-5">
-    <ul>
-        <li><a th:href="'/login'">login</a></li>
-        <li><a th:href="@{/(name=${name})}">Information</a></li>
-        <li><a th:href="@{/nutrition-store(name=${name})}">Nutrition Store</a></li>
-        <li><a th:href="@{/trick-center(name=${name})}">Trick center</a></li>
-
-    </ul>
-
+    <ul th:include="fragments-nav::navigation"></ul>
 
     <form th:action="@{/nutrition-store(name=${name})}" method="post">
         <div class="form-group row dropdown col-sm-10 mb-2">

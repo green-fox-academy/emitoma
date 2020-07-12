@@ -1,0 +1,7 @@
+<ul th:fragment="navigation" xmlns:th="http://www.w3.org/1999/xhtml"  class="list-group list-group-flush">
+    <li class="list-group-item" ><a  th:href="'/login'">login</a></li>
+    <li class="list-group-item" th:if="${fox != null && fox.drink != null || name != 'Foxy'}"><a th:href="@{/(name=${name})}">Information</a></li>
+    <li class="list-group-item" th:if="${name != 'Foxy'}"><a  th:href="@{/nutrition-store(name=${name})}">Nutrition Store</a></li>
+    <li class="list-group-item" th:if="${fox != null && fox.drink != null || name != 'Foxy'}" ><a  th:href="@{/trick-center(name=${name})}">Trick center</a></li>
+
+</ul>

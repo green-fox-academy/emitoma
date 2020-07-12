@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments :: head(${'Fox Club'})"></head>
+<head th:include="fragments-head :: head(${'Fox Club'})"></head>
 <body>
 <div class="container mt-5">
-    <ul>
-        <li><a th:href="'/login'">login</a></li>
-        <li><a th:href="@{/(name=${name})}">Information</a></li>
-
-        <!--        <li><a th:href="@{/nutrition-store(name=${fox.name})}">Nutrition Store</a></li>-->
-        <li><a th:href="@{/nutrition-store(name=${name})}">Nutrition Store</a></li>
-
-        <li><a th:href="@{/trick-center(name=${name})}">Trick center</a></li>
-    </ul>
+    <ul th:include="fragments-nav::navigation"></ul>
 
     <img src="./greenfox.png" alt="Your fox">
-    <div th:if="${fox != null && fox.drink != null}">
 
-        <p th:text="'This is ' + ${fox.name} +
+    <div th:if="${fox != null && fox.drink != null}">
+        <div class="info">
+            <p th:text="'This is ' + ${fox.name} +
     '. He\'s eating ' + ${fox.food} + ' and drinks '    + ${fox.drink} + '. He knows '
     + ${fox.numberOfTricks()} + ' trick(s).'"></p>
-        <h2>Known tricks:</h2>
-        <ul th:each="trick:${trickList}">
-            <li th:text="${trick.name}"></li>
-        </ul>
+        </div>
+        <div class=" tricks" th:if="${!trickList.isEmpty()}">
+            <h2>Known tricks:</h2>
+            <ul th:each="trick:${trickList}">
+                <li th:text="${trick.name}"></li>
+            </ul>
+        </div>
+        <div th:if="${trickList.isEmpty()}">
+            <h2 class="alert alert-primary"> You don't know any tricks yet! Go to trick center to learn some
+                tricks!</h2>
+        </div>
+        <div class="history">
+            <h2>Action history:</h2>
+            <ul>
+                <li>asdad</li>
+            </ul>
+        </div>
 
     </div>
 

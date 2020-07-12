@@ -34,6 +34,7 @@ public class MainController {
 
     @GetMapping("/login")
     public String login(@RequestParam(defaultValue = "Foxy") String name, Model model) {
+        System.out.println(name);
         model.addAttribute("trickList", foxService.getTrickList());
         model.addAttribute("foodList", foxService.getFoodList());
         model.addAttribute("drinkList", foxService.getDrinkList());
@@ -43,6 +44,8 @@ public class MainController {
     @PostMapping("/login")
     public String getMyPet(@RequestParam(value = "name") String name,
                            @RequestParam(value = "trick") Trick trick,
+                           @RequestParam Food food,
+                           @RequestParam Drink drink,
                            @ModelAttribute Fox fox) {
         Optional<Fox> optionalFox = foxService.findFox(name);
         if (optionalFox.isPresent()) {
@@ -51,7 +54,6 @@ public class MainController {
             fox.learnTricks(trick);
             foxService.add(fox);
             return "redirect:/?name=" + name;
-
         }
     }
 
@@ -94,7 +96,6 @@ public class MainController {
 
     @PostMapping("/trick-center")
     public String learnTrick(@RequestParam(defaultValue = "Foxy") String name, @RequestParam(defaultValue = "trick") Trick trick, Model model) {
-        System.out.println(name);
         Optional<Fox> optionalFox = foxService.findFox(name);
         if (optionalFox.isPresent()) {
             Fox foundFox = optionalFox.get();
@@ -103,7 +104,11 @@ public class MainController {
 
         }
         return "redirect:/?name=" + name;
-//        return "trickcenter";
+    }
+
+    @RequestMapping("/action-history")
+    public String history(){
+        return "action-history";
     }
 
 }
