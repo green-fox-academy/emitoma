@@ -2,26 +2,32 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Todo list</title>
 </head>
 <body>
 <body>
-<h1>Todos for today</h1>
-<table>
-    <thead>
-    <tr>
-        <td>Title</td>
-        <td>Urgent</td>
-        <td>Done</td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="todo:${todos}">
-        <td th:text="${todo.title}"></td>
-        <td th:text="${todo.urgent}"></td>
-        <td th:text="${todo.done}"></td>
-    </tr>
-    </tbody>
-</table>
+<div class="container">
+    <h1>Todos for today</h1>
+    <table  class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Urgent</th>
+            <th scope="col">Done</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="active" th:each="todo:${todos}" >
+            <td th:text="${todo.id}"></td>
+            <td th:text="${todo.title}"></td>
+            <td th:text="${todo.isUrgent}"></td>
+            <td th:text="${todo.isDone}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

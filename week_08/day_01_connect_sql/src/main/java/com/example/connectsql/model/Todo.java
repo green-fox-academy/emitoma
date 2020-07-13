@@ -12,10 +12,10 @@ public class Todo {
     private String title;
 
     @Column(nullable = false)
-    private boolean urgent;
+    private boolean isUrgent;
 
     @Column(nullable = false)
-    private boolean done;
+    private boolean isDone;
 
 
     public Todo() {
@@ -25,10 +25,10 @@ public class Todo {
         this.title = title;
     }
 
-    public Todo(String title, boolean urgent, boolean done) {
+    public Todo(String title, boolean isUrgent, boolean isDone) {
         this.title = title;
-        this.urgent = urgent;
-        this.done = done;
+        this.isUrgent = isUrgent;
+        this.isDone = isDone;
     }
 
     public Long getId() {
@@ -47,19 +47,19 @@ public class Todo {
         this.title = title;
     }
 
-    public boolean isUrgent() {
-        return urgent;
+    public boolean isIsUrgent() {
+        return isUrgent;
     }
 
-    public void setUrgent(boolean urgent) {
-        this.urgent = urgent;
+    public void setIsUrgent(boolean urgent) {
+        this.isUrgent = urgent;
     }
 
-    public boolean isDone() {
-        return done;
+    public boolean isIsDone() {
+        return isDone;
     }
 
-    public void setDone(boolean done) {
-        this.done = done;
+    public void setIsDone(boolean done) {
+        this.isDone = done;
     }
 }
