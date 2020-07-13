@@ -14,12 +14,12 @@ public class SpringsqlworkshopApplication {
         SpringApplication.run(SpringsqlworkshopApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner todoDB(TodoRepository todoRepository) {
-        return args -> {
-            todoRepository.save(new Todo("Feed the cat", true, false));
-            todoRepository.save(new Todo("Cook dinner", false, true));
-        };
-    }
+//    @Bean
+//    public CommandLineRunner todoDB(TodoRepository todoRepository) {
+//        return args -> {
+//            todoRepository.save(new Todo("Feed the cat", true, false));
+//            todoRepository.save(new Todo("Cook dinner", false, true));
+//        };
+//    }
 
 }
