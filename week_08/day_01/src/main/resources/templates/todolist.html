@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+</head>
+<body>
+<body>
+<h1>Todos for today</h1>
+<table>
+    <thead>
+    <tr>
+        <td>Title</td>
+        <td>Urgent</td>
+        <td>Done</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todo:${todos}">
+        <td th:text="${todo.title}"></td>
+        <td th:text="${todo.urgent}"></td>
+        <td th:text="${todo.done}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
