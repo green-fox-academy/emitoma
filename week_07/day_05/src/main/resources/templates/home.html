@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments-head :: head(${'Fox Club - register'})"></head>
+
+<body>
+<div class="container mt-5">
+    <div th:if="${!passwordOk}" class="alert alert-danger mt-5" role="alert">
+        Password have to match!
+    </div>
+
+    <h1>Log in</h1>
+    <form th:action="@{/}" method="post">
+        <div class="form-group row col-sm-10">
+            <label class="mb-2">Username</label>
+            <input class="form-control mb-2" type="text" name="userName" required>
+        </div>
+
+        <div class="form-group row col-sm-10">
+            <label class="mb-2">Password</label>
+            <input class="form-control mb-2" type="password" name="password" required>
+
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 block">LOG IN</button>
+
+    </form>
+
+
+</div>
+
+</body>
+
+</html>
