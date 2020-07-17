@@ -1,9 +1,6 @@
 package com.example.foxclub.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -11,8 +8,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(unique = true)
     private String userName;
     private String password;
+
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.ALL)
+    private Fox fox;
 
     public User() {
 
@@ -45,5 +47,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Fox getFox() {
+        return fox;
+    }
+
+    public void setFox(Fox fox) {
+        this.fox = fox;
     }
 }
