@@ -38,9 +38,15 @@ public class LoginController {
             if (!user.getPassword().equals(password)) {
                 return "redirect:/login?passwordOk=false&userName=" + userName;
             }
+
             return "redirect:/list?userName=" + userName;
         }
         return "redirect:/register?userName=" + userName + "&userFound=false";
+    }
+
+    @RequestMapping("/logout")
+    public String logout() {
+        return "redirect:/login";
     }
 
 

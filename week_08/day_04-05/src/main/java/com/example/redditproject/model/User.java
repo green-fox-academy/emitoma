@@ -27,10 +27,17 @@ public class User {
     @OneToMany
     private List<Post> postList;
 
+    @Column(columnDefinition = "boolean default false")
+    private boolean isOnline;
+
     public User(String firstName, String lastName, String userName, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
+    }
+
+    public String toString() {
+        return this.userName;
     }
 }

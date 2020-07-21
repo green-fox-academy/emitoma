@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     <title>Log In</title>
 </head>
 <body>
 <div class="container mb-5">
     <div class="d-flex justify-content-around m-5">
         <h3><a th:href="@{/submit(userName=${userName})}">Submit new post</a></h3>
-        <h3><a href="">Log in</a></h3>
+        <h3><a th:href="@{/login}">Log out</a></h3>
     </div>
 
 
@@ -23,15 +24,19 @@
 
 
     <div class="card-group">
-        <div class="card mb-5" style="width: 18rem;">
+        <div class="card mb-5" style="width: 18rem;" th:each="post:${posts}">
             <div class="card-body">
-                <h5 class="card-title mb-2">Post Title </h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="card-link">UserName</a>
-                <a href="" class="card-link">upvote</a>
-                <a href="" class="card-link">downvote</a>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <h5 class="card-header" th:text="'Author: ' + ${post.author}"></h5>
+                <h5 th:text="${post.title}" class="card-title mb-2"></h5>
+                <p th:text="${post.postBody}" class="card-text"></p>
+                <a href="" class="card-link block">upvote</a>
+                <span class="oi oi-arrow-circle-bottom"></span>
+                <a href="" class="card-link block">downvote</a>
+                <span class="oi oi-arrow-circle-top"></span>
+                <p class="card-text block">
+                    <small class="text-muted" th:text="'Post created: ' + ${post.dateCreated}">
+                    </small>
+                </p>
             </div>
         </div>
     </div>
