@@ -18,31 +18,23 @@ public class GreetController {
                                             @RequestParam(required = false) String title,
                                             HttpServletResponse response) {
         Person person = new Person(name, title);
-        if (name == null && title == null) {
-            HashMap<String, String> responseData = new HashMap<>();
-            responseData.put("error", "Please provide a name and a title!");
-            response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );
-            return responseData;
-//            return ResponseEntity.status(400).body("Please provide a name and a title!");
-        } else if (name == null) {
-            HashMap<String, String> responseData = new HashMap<>();
-            responseData.put("error", "Please provide a name!");
-            response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );
-            return responseData;
-//            return ResponseEntity.status(400).body("Please provide a name!");
-        } else if (title == null) {
-            HashMap<String, String> responseData = new HashMap<>();
-            responseData.put("error", "Please provide a title!");
-            response.setStatus( HttpServletResponse.SC_BAD_REQUEST  );
-            return responseData;
-//            return ResponseEntity.status(400).body("Please provide a title!");
-        }
         HashMap<String, String> responseData = new HashMap<>();
+        if (name == null && title == null) {
+            responseData.put("error", "Please provide a name and a title!");
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return responseData;
+        } else if (name == null) {
+            responseData.put("error", "Please provide a name!");
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return responseData;
+        } else if (title == null) {
+            responseData.put("error", "Please provide a title!");
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return responseData;
+        }
         responseData.put("welcome_message", person.welcome());
-//        return ResponseEntity.status(200).body(person.welcome());
         return responseData;
     }
- 
 
 
 }
