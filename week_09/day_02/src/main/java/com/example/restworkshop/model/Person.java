@@ -25,7 +25,7 @@ public class Person {
         this.name = name;
     }
 
-    public String greet() {
+    public String welcome() {
         return "Oh, hi there " + this.name + ", my dear " + this.title + "!";
     }
 }
