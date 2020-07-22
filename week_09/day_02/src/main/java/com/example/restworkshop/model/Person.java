@@ -1,8 +1,12 @@
 package com.example.restworkshop.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
     private String name;
     private String title;
+    private List<Address> addresses = new ArrayList<>();
 
     public Person(String name, String title) {
         this.name = name;
@@ -27,5 +31,13 @@ public class Person {
 
     public String welcome() {
         return "Oh, hi there " + this.name + ", my dear " + this.title + "!";
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 }
