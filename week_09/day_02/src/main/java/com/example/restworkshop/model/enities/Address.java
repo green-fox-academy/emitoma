@@ -1,4 +1,4 @@
-package com.example.restworkshop.model;
+package com.example.restworkshop.model.enities;
 
 public class Address {
     private String address;

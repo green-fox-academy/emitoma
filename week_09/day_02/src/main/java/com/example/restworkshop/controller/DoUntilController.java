@@ -1,20 +1,11 @@
 package com.example.restworkshop.controller;
 
-import com.example.restworkshop.model.Address;
-import com.example.restworkshop.model.Person;
-import com.example.restworkshop.model.Until;
+import com.example.restworkshop.model.enities.Until;
 import com.example.restworkshop.service.DoUntilService;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 public class DoUntilController {

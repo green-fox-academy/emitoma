@@ -1,4 +1,4 @@
-package com.example.restworkshop.model;
+package com.example.restworkshop.model.enities;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

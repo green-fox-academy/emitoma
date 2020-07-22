@@ -1,8 +1,8 @@
 package com.example.restworkshop.service;
 
-import com.example.restworkshop.model.ArrayHandler;
-import com.example.restworkshop.model.Result;
-import com.example.restworkshop.model.ResultArray;
+import com.example.restworkshop.model.enities.ArrayHandler;
+import com.example.restworkshop.model.enities.Result;
+import com.example.restworkshop.model.enities.ResultArray;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

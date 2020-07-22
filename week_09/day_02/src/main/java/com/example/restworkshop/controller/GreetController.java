@@ -1,10 +1,8 @@
 package com.example.restworkshop.controller;
 
-import com.example.restworkshop.model.Person;
-import org.springframework.http.HttpStatus;
+import com.example.restworkshop.model.enities.Person;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;

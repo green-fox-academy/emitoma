@@ -1,4 +1,6 @@
-package com.example.restworkshop.model;
+package com.example.restworkshop.model.enities;
+
+import com.example.restworkshop.model.enities.Address;
 
 import java.util.ArrayList;
 import java.util.List;
