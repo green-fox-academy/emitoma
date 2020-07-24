@@ -1,7 +1,5 @@
 package com.example.restworkshop.model.enities;
 
-import com.example.restworkshop.model.enities.Address;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +7,7 @@ public class Person {
     private String name;
     private String title;
     private List<Address> addresses = new ArrayList<>();
+    private WelcomeMessage welcome_message;
 
     public Person(String name, String title) {
         this.name = name;
@@ -31,8 +30,12 @@ public class Person {
         this.name = name;
     }
 
-    public String welcome() {
-        return "Oh, hi there " + this.name + ", my dear " + this.title + "!";
+    public WelcomeMessage getWelcome_message() {
+        return welcome_message;
+    }
+
+    public void setWelcome_message(WelcomeMessage welcome_message) {
+        this.welcome_message = welcome_message;
     }
 
     public List<Address> getAddresses() {
@@ -42,4 +45,9 @@ public class Person {
     public void setAddresses(List<Address> addresses) {
         this.addresses = addresses;
     }
+
+    public WelcomeMessage welcome() {
+        return new WelcomeMessage("Oh, hi there " + this.name + ", my dear " + this.title + "!");
+    }
+
 }
