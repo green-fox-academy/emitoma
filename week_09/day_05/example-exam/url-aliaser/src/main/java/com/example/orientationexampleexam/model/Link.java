@@ -1,6 +1,7 @@
 package com.example.orientationexampleexam.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 
@@ -18,6 +19,7 @@ public class Link {
     @OneToOne
     private SecretCode secretCode;
 
+    @Column(columnDefinition = "0")
     private int hitCount;
 
     public Link() {
@@ -60,5 +62,9 @@ public class Link {
 
     public void setSecretCode(SecretCode secretCode) {
         this.secretCode = secretCode;
+    }
+
+    public void incrementHitcount() {
+        this.hitCount++;
     }
 }

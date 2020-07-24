@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,24 +27,43 @@ public class MainController {
 
 
     @GetMapping("/")
-    public String renderMainPage(@RequestParam(defaultValue = "true") boolean success,
-                                 @RequestParam String alias,
-                                 @RequestParam SecretCode secretCode,
+    public String renderMainPage(@RequestParam(defaultValue = "false") boolean success,
+                                 @RequestParam(defaultValue = "", required = false) String alias,
+                                 @RequestParam(defaultValue = "") SecretCode secretCode,
                                  Model model) {
+
         model.addAttribute("success", success);
+//        model.addAttribute("error", error);
         model.addAttribute("alias", alias);
-        model.addAttribute("secretCode", secretCode);
+
+
+        model.addAttribute("secretCode", secretCode.getSecretCode());
         return "index";
     }
 
 
     @PostMapping("/save-link")
-    public String submitLink(@RequestParam String url, @RequestParam String alias) {
-        Optional<Link> databaseLink = linkService.findLinkInDb(url);
+    public String submitLink(@RequestParam String url,
+                             @RequestParam String alias) {
+        Optional<Link> databaseLink = linkRepository.findByAlias(alias);
         if (databaseLink.isPresent()) {
-            return "redirect:/success=true&secretCode=" + databaseLink.get().getSecretCode();
+            Link link = databaseLink.get();
+            return "redirect:/?success=true&alias=" + link.getAlias() + "&secretCode=" + link.getSecretCode();
         }
-        Link newLink = linkService.saveNewLink(url, alias);
-        return "redirect:/";
+        return "redirect:/?success=false";
+
+
+    }
+
+    @GetMapping("/a/{alias}")
+    public String aliasexist(@PathVariable String alias) {
+        Optional<Link> databaseLink = linkRepository.findByAlias(alias);
+        if (databaseLink.isPresent()) {
+            String linkUrl = databaseLink.get().getUrl();
+            databaseLink.get().incrementHitcount();
+            return "redirect:" + linkUrl;
+        } else {
+            return "/";
+        }
     }
 }

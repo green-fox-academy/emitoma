@@ -42,8 +42,7 @@ public class LinkService {
         return secretCode;
     }
 
-    public Optional<Link> findLinkInDb(String url) {
-        return linkRepository.findByUrl(url);
-    }
+
+
 
 }

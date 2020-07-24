@@ -9,10 +9,9 @@
 <body>
 <div class="container mt-5">
 
-        <h3 th:if="${success}"
-                th:text="'Your URL is aliased to ' ${alias}
-    <!--            ' and your secret code is ' ${secretCode}'.'"></h3>-->
-    <!--    <h3 th:if="!${success}" th:text="'Your alias is already in use!'"></h3>-->
+    <h3 th:if="${success}"
+        th:text="'Your URL is aliased to ' + ${alias} + ' and your secret code is ' + ${secretCode} +'.'"></h3>
+<!--        <h3 th:if="${error}" th:text="'Your alias is already in use!'"></h3>-->
 
     <form th:action="@{/save-link}" method="post">
         <div class="form-group row">
