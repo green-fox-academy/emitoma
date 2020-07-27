@@ -11,7 +11,8 @@ import java.util.Optional;
 public interface LinkRepository extends CrudRepository<Link, Long> {
     Optional<Link> findByUrl(String url);
 
-    Optional<Link> findByAlias(String alias);
+    Optional<Link> findByAlias(String alias);}
+
 
 //    @Query("SELECT secret_code.secret_code FROM secret_code INNER JOIN link ON secret_code.id = link.secret_code_id")
 
