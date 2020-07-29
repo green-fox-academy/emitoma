@@ -17,3 +17,9 @@
 .magenta {
     background-color: rgb(252, 68, 234);
 }
+.valid{
+    color: rgb(114, 252, 68);
+}
+.invalid{
+    color: rgb(227, 46, 30);
+}

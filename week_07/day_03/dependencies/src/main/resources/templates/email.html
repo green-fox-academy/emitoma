@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head(${'Email validator'})">
+</head>
+
+<body>
+<div class="container pt-5">
+    <a th:href="'/useful'"><h2 class="p-2 bg-dark text-white">Main Page</h2></a>
+
+    <h3 th:if="${validEmail}" class="valid" th:text="${email}"></h3>
+    <h3 th:if="${!validEmail}" class="invalid" th:text="${email}"></h3>
+</div>
+</body>
+</html>

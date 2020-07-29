@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head(${'Caesar encoder/decoder'})">
+</head>
+
+<body>
+<div class="container pt-5">
+    <a th:href="'/useful'"><h2 class="p-2 bg-dark text-white">Main Page</h2></a>
+    <h3 th:if="${encode}" th:text="${encodedText}"></h3>
+    <h3 th:if="${decode}" th:text="${decodedText}"></h3>
+
+    <li th:if="${decode}" class="list-group-item">
+        <a th:href="'/useful/encode?text=' + ${decodedText} + '&number=5'"><h2>Caesar encoder</h2></a></li>
+    <li th:if="${encode}" class="list-group-item">
+        <a th:href="'/useful/decode?text=' + ${encodedText} + '&number=5'"><h2>Caesar decoder</h2></a></li>
+
+</div>
+</body>
+</html>

@@ -26,6 +26,16 @@ public class UtilityService {
     }
 
 
+    public boolean validateEmail(String email) {
+        boolean emailIsValid = false;
+        if (email.contains("@") && email.contains(".")) {
+            emailIsValid = true;
+        }
+
+        return emailIsValid;
+    }
+
+
     public String caesar(String text, int number) {
         if (number < 0) {
             number = 26 + number;
