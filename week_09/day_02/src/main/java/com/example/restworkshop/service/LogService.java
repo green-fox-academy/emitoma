@@ -20,18 +20,17 @@ public class LogService {
     }
 
     public Log saveLog(String endpoint, Date createdAt, String data) {
-     Log newLog = logRepository.save(new Log(createdAt, endpoint, data));
-     entriesList(newLog);
-     return newLog;
+        Log newLog = logRepository.save(new Log(createdAt, endpoint, data));
+        return newLog;
     }
 
-    public List<Log> findAll(){
+    public List<Log> findAll() {
         return (List<Log>) logRepository.findAll();
     }
 
-    public ArrayList<Log> entriesList(Log log){
-        ArrayList<Log> entries = new ArrayList<>();
-        entries.add(log);
-        return entries;
+    public int logCount() {
+        List<Log> logs = findAll();
+        return logs.size();
     }
+
 }

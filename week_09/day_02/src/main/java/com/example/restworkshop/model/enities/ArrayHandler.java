@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Getter
@@ -17,4 +18,7 @@ public class ArrayHandler {
         this.numbers = new ArrayList<>();
     }
 
+    public String toString(){
+        return "what=" + this.what + ", numbers=" + this.numbers;
+    }
 }
