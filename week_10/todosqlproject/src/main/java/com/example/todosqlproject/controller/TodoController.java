@@ -4,10 +4,7 @@ import com.example.todosqlproject.model.Todo;
 import com.example.todosqlproject.repository.TodoRepository;
 import com.example.todosqlproject.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,4 +25,24 @@ public class TodoController {
         List<Todo> activeTodos = (List<Todo>) todoService.listActive();
         return activeTodos;
     }
+
+    @GetMapping("/add")
+    public String addTodo() {
+        return "Add new todo";
+    }
+
+    @PostMapping("/add")
+    public String addTodo(@RequestBody Todo todo) {
+        todoService.addNewTodo(todo);
+        return "redirect:/todo/list";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteTodo(@PathVariable Long id) {
+        todoService.deleteTodo(id);
+        return "redirect:/todo/list";
+    }
+
+    
+
 }
