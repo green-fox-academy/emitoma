@@ -1,5 +1,8 @@
 package com.example.restworkshop.controller;
 
+import com.example.restworkshop.model.DTO.ErrorMessage;
+import com.example.restworkshop.service.DoublingService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,18 +12,20 @@ import java.util.Optional;
 
 @RestController
 public class DoublingController {
+    private DoublingService doublingService;
+
+    @Autowired
+    public DoublingController(DoublingService doublingService) {
+        this.doublingService = doublingService;
+    }
 
     @GetMapping("/doubling")
-    public Map doubling(@RequestParam(required = false) Integer input) {
+    public ResponseEntity<?> doubling(@RequestParam(required = false) Integer input) {
+
         if (input == null) {
-            HashMap<String, String> responseData = new HashMap<>();
-            responseData.put("error", "Please provide an input!");
-            return responseData;
+            return ResponseEntity.status(200).body(new ErrorMessage("Please provide an input!"));
         }
-        HashMap<String, Integer> responseData = new HashMap<>();
-        responseData.put("received", input);
-        responseData.put("result", input * 2);
-        return responseData;
+        return ResponseEntity.status(200).body(doublingService.doubler(input));
 
     }
 
