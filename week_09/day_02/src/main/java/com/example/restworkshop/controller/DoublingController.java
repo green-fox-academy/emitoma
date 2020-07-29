@@ -24,16 +24,5 @@ public class DoublingController {
 
     }
 
-//    @GetMapping("/doubling")
-//    public HashMap<String, String> doubling() {
-//        HashMap<String, String> responseData = new HashMap<>();
-//
-//        responseData.put("error", "Please provide an input!");
-//
-//
-//        return responseData;
-//
-//    }
-
 
 }

@@ -19,15 +19,13 @@ public class UntilController {
     @PostMapping("/dountil/{action}")
     public ResponseEntity<?> doUntil(@PathVariable String action,
                                      @RequestBody Until until) {
-        if (until == null) {
-            return ResponseEntity.status(400).body(new ErrorMessage("Please provide a number!"));
-        }
+
         if (action.equals("sum")) {
             return ResponseEntity.status(200).body(untilService.sum(until));
         }
         if (action.equals("factor")) {
             return ResponseEntity.status(200).body(untilService.factor(until));
         }
-        return null;
+        return ResponseEntity.status(400).body(new ErrorMessage("Please provide a number!"));
     }
 }

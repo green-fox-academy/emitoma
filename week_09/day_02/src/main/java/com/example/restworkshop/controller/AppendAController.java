@@ -1,5 +1,7 @@
 package com.example.restworkshop.controller;
 
+import com.example.restworkshop.model.enities.Appended;
+import com.example.restworkshop.service.AppendService;
 import com.example.restworkshop.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,17 +15,23 @@ import java.util.HashMap;
 @RestController
 public class AppendAController {
     private LogService logService;
+    private AppendService appendService;
 
     @Autowired
-    public AppendAController(LogService logService) {
+    public AppendAController(LogService logService, AppendService appendService) {
         this.logService = logService;
+        this.appendService = appendService;
     }
 
     @GetMapping("/appenda/{appendable}")
-    public HashMap<String, String> appenda(@PathVariable String appendable) {
+    public ResponseEntity<?> appenda(@PathVariable String appendable) {
+
         logService.saveLog("/appenda", new Date(), appendable);
-        HashMap<String, String> responseData = new HashMap<>();
-        responseData.put("appended", appendable + "a");
-        return responseData;
+
+        if (appendable.isEmpty()) {
+            return (ResponseEntity<?>) ResponseEntity.notFound();
+        }
+
+        return ResponseEntity.status(200).body(appendService.appenda(appendable));
     }
 }
