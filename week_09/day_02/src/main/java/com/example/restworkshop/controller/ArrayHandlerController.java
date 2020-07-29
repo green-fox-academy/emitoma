@@ -26,7 +26,7 @@ public class ArrayHandlerController {
 
     @PostMapping("/arrays")
     public ResponseEntity<? extends Object> arrayHandler(@RequestBody ArrayHandler arrayHandler) {
-        logService.saveLog("arrays", new Date(), arrayHandler.toString());
+        logService.saveLog("/arrays", new Date(), arrayHandler.getWhat());
         if (arrayHandler.getWhat().equals("sum")) {
             return ResponseEntity.status(200).body(arrayHandlerService.sum(arrayHandler));
         } else if (arrayHandler.getWhat().equals("multiply")) {

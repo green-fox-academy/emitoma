@@ -15,6 +15,7 @@ public class LogController {
     public LogController(LogService logService) {
         this.logService = logService;
     }
+
     @GetMapping("/log")
     public ResponseEntity<? extends Object> log(){
         return ResponseEntity.status(200).body(logService.findAll());

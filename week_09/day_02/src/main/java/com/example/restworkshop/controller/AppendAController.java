@@ -21,7 +21,7 @@ public class AppendAController {
 
     @GetMapping("/appenda/{appendable}")
     public HashMap<String, String> appenda(@PathVariable String appendable) {
-        logService.saveLog("appenda", new Date(), appendable);
+        logService.saveLog("/appenda", new Date(), appendable);
         HashMap<String, String> responseData = new HashMap<>();
         responseData.put("appended", appendable + "a");
         return responseData;

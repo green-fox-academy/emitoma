@@ -5,6 +5,7 @@ import com.example.restworkshop.repositories.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -19,10 +20,18 @@ public class LogService {
     }
 
     public Log saveLog(String endpoint, Date createdAt, String data) {
-     return logRepository.save(new Log(createdAt, endpoint, data));
+     Log newLog = logRepository.save(new Log(createdAt, endpoint, data));
+     entriesList(newLog);
+     return newLog;
     }
 
     public List<Log> findAll(){
         return (List<Log>) logRepository.findAll();
+    }
+
+    public ArrayList<Log> entriesList(Log log){
+        ArrayList<Log> entries = new ArrayList<>();
+        entries.add(log);
+        return entries;
     }
 }
