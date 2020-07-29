@@ -31,6 +31,15 @@ public class TodoService {
             Todo toDelete = dbTodo.get();
             todoRepository.delete(toDelete);
         }
+    }
+
+    public void updateTodo(Long id, Todo todo) {
+
+        Optional<Todo> dbTodo = todoRepository.findById(id);
+        if (dbTodo.isPresent()) {
+            todo.setId(id);
+            todoRepository.save(todo);
+        }
 
     }
 }

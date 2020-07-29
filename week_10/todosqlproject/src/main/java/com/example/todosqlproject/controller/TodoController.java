@@ -4,6 +4,7 @@ import com.example.todosqlproject.model.Todo;
 import com.example.todosqlproject.repository.TodoRepository;
 import com.example.todosqlproject.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,17 +33,23 @@ public class TodoController {
     }
 
     @PostMapping("/add")
-    public String addTodo(@RequestBody Todo todo) {
+    public ResponseEntity<?> addTodo(@RequestBody Todo todo) {
         todoService.addNewTodo(todo);
-        return "redirect:/todo/list";
+        return ResponseEntity.status(302).header("Location", "/todo/list").body("");
     }
 
-    @GetMapping("/{id}/delete")
-    public String deleteTodo(@PathVariable Long id) {
+    @PostMapping("/{id}/delete")
+    public ResponseEntity<?> deleteTodo(@PathVariable Long id) {
         todoService.deleteTodo(id);
-        return "redirect:/todo/list";
+        return ResponseEntity.status(302).header("Location", "/todo/list").body("");
     }
 
-    
-
+    //    @GetMapping("/{id}/edit")
+//    public
+    @PutMapping("/{id}/edit")
+    public ResponseEntity<?> updateTodo(@PathVariable Long id,
+                                        @RequestBody Todo todo) {
+        todoService.updateTodo(id, todo);
+        return ResponseEntity.status(302).header("Location", "/todo/list").body("");
+    }
 }
