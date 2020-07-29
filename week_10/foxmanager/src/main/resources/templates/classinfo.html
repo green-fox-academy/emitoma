@@ -10,12 +10,16 @@
 
 <div class="content mt-5">
     <form th:action="@{/class-info}" method="post">
-        <div class="row">
+        <div class="form-row align-items-center">
             <div class="col">
                 <label>Name</label>
                 <input type="text" name="name" class="form-control">
             </div>
 
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option th:each="FoxClass:${classes}" th:value="${FoxClass.id}" th:text="${FoxClass.className}"></option>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Add student</button>
     </form>

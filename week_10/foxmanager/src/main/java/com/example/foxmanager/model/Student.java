@@ -20,11 +20,12 @@ public class Student {
     @ManyToOne
     private Team teamId;
 
-    @ManyToOne
-    private FoxClass classId;
+
+    private Long classId;
 
 
-    public Student(String name) {
+    public Student(String name, Long classId) {
         this.name = name;
+        this.classId = classId;
     }
 }
