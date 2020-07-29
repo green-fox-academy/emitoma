@@ -12,5 +12,7 @@ import java.util.List;
 public class Result {
     private Integer result;
 
-
+    public Result(Integer result) {
+        this.result = result;
+    }
 }
