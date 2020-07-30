@@ -40,6 +40,10 @@ public class TodoService {
             todo.setId(id);
             todoRepository.save(todo);
         }
+    }
 
+    public List<Todo> findTodo(String search) {
+        List<Todo> found = todoRepository.findByTitleContaining(search);
+        return found;
     }
 }

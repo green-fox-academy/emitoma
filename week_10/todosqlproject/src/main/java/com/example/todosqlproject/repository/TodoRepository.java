@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface TodoRepository extends CrudRepository<Todo, Long> {
     List<Todo> getAllByDoneIsFalse();
+    List<Todo> findByTitleContaining(String search);
 }

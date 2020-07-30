@@ -52,4 +52,9 @@ public class TodoController {
         todoService.updateTodo(id, todo);
         return ResponseEntity.status(302).header("Location", "/todo/list").body("");
     }
+
+    @GetMapping("/search")
+    public List<Todo> searchTodo(@RequestParam String search) {
+        return todoService.findTodo(search);
+    }
 }
